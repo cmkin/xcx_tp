@@ -1,0 +1,2 @@
+/* pages/index/edit/edit.wxss */
+@import "/less/index/edit/edit.wxss";

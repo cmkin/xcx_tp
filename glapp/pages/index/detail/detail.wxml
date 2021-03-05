@@ -1,0 +1,12 @@
+<!--pages/index/detail/detail.wxml-->
+<view class="index_detail">
+	<navbar navTitle="菜品详情" style="width:200rpx;"></navbar>
+	<view class="main" style="height: {{winHeightTab+'px'}};">
+		<image class="img" src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=1537044454,991969746&fm=202&mola=new&crop=v1"></image>
+		<view class="name">口水</view>
+		<view class="btns">
+			<text>删除</text>
+			<text>修改</text>
+		</view>
+	</view>
+</view>

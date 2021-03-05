@@ -1,0 +1,2 @@
+/* pages/statistics/statistics.wxss */
+@import "/less/statistics/statistics.wxss";

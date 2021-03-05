@@ -1,0 +1,99 @@
+.classification .main .search {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.classification .main .search .c {
+  position: relative;
+  background: #F2F2F2;
+  border-radius: 29rpx;
+}
+.classification .main .search .c image {
+  position: absolute;
+  top: 50%;
+  left: 16rpx;
+  width: 30rpx;
+  height: 30rpx;
+  transform: translateY(-50%);
+}
+.classification .main .search .c input {
+  display: block;
+  padding: 5px;
+  padding-left: 30px;
+}
+.classification .main .ul {
+  padding: 20rpx;
+  padding-top: 120rpx;
+}
+.classification .main .ul .li {
+  border-radius: 16rpx;
+  background-color: #fff;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.classification .main .ul .li .r {
+  float: right;
+}
+.classification .main .ul .li .r image {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 40rpx;
+}
+.classification .main .add {
+  position: fixed;
+  right: 30rpx;
+  bottom: 100rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+.classification .edit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+.classification .edit .main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 24rpx;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.classification .edit .main .t {
+  color: #000;
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 30rpx;
+}
+.classification .edit .main .li {
+  width: 90%;
+  margin: auto;
+  margin-bottom: 30rpx;
+  background: #F2F3F7;
+  border-radius: 50rpx;
+  text-align: center;
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.classification .edit .main .li input {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.classification .edit .main .blue {
+  background: linear-gradient(270deg, #2A74FF 0%, #2AA0FF 100%);
+}
+.classification .edit .main .blue text {
+  color: #fff;
+}

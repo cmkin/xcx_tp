@@ -1,0 +1,46 @@
+<!--pages/classification/classification.wxml-->
+<view class="classification">
+	<navbar navTitle="分类管理" style="width:200rpx;" noArrow="true"></navbar>
+	<view class="main">
+		<view class="search" style="top: {{navHeight+'px'}};">
+			<view class="c">
+				<image src="../../images/Search.png"></image>
+				<input type="text" placeholder="请输入搜索内容" />
+			</view>
+		</view>
+		<view class="ul">
+			<view class="li clearfix" wx:for="{{10}}">
+				<text>荤菜</text>
+				<view class="r">
+					<image src="../../images/edit.png"></image>
+					<image src="../../images/del2.png"></image>
+				</view>
+			</view>
+		</view>
+		
+		<image class="add" src="../../images/ads.png"></image>
+		
+	</view>
+	
+	
+	<view class="edit">
+		<view class="main">
+			<view class="t">{{ true?'添加分类':'编辑分类' }}</view>
+			<view class="li">
+				<input placeholder="请输入分类名称" type="text" />
+			</view>
+			<view class="li blue">
+				<text>确认添加菜品</text>
+			</view>
+			<view class="li blue">
+				<text>保存</text>
+			</view>
+			<view class="li" style="border: 2rpx solid #E5E5E5;background-color: #fff;">
+				<text>取消</text>
+			</view>
+		</view>
+		
+		
+	</view>
+	
+</view>

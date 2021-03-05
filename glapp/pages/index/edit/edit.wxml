@@ -1,0 +1,29 @@
+<!--pages/index/edit/edit.wxml-->
+<view class="index_edit">
+	<navbar navTitle="编辑菜品" style="width:200rpx;"></navbar>
+	<view class="main" style="height: {{winHeightTab+'px'}};">
+		<view class="add">
+			<view class="no">
+				<image src="../../../images/add.png"></image>
+				<text>上传菜品图片</text>
+			</view>
+			<view class="has">
+				<image class="img" src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=1537044454,991969746&fm=202&mola=new&crop=v1"></image>
+				<image src="../../../images/del.png" class="del"></image>
+			</view>
+		</view>
+		<view class="li">
+			<input type="text" placeholder="请输入菜品名称" />
+		</view>
+		<view class="li blue">
+			<text>确认添加菜品</text>
+		</view>
+		<view class="li blue">
+			<text>保存菜品</text>
+		</view>
+		<view class="li" style="border: 2rpx solid #E5E5E5;background-color: #fff;">
+			<text>取消</text>
+		</view>
+		
+	</view>
+</view>

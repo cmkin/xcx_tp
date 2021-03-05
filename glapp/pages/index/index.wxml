@@ -1,0 +1,35 @@
+<!--index.wxml-->
+<view class="index">
+  <navbar navTitle="菜品管理" style="width:200rpx;" noArrow="true"></navbar>
+  
+  <view class="main clearfix" style="height: {{winHeightTab+'px'}};">
+	  <view class="left">
+		  <view class="ul">
+			  <view class="li" wx:for="{{10}}">
+				  <text class="{{index==0?'active':''}}">荤菜</text>
+			  </view>
+		  </view>
+	  </view>
+	  
+	  <view class="right">
+		  <view class="ul clearfix">
+			  <view class="li {{index==0?'active':''}}"  wx:for="{{10}}">
+				<image class="img" src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=1537044454,991969746&fm=202&mola=new&crop=v1"></image>
+				<text>清炒罗比</text>
+				<image src="../../images/bzbf.png" class="yb"></image>
+			  </view>
+		  </view>
+		  <image src="../../images/ads.png" class="add"></image>
+		  <view class="delete clearfix">
+			  <view class="l">
+				  已选择菜品：0
+			  </view>
+			  <view class="r">
+				  <text>批量删除</text>
+				  <text>确认删除</text>
+			  </view>
+		  </view>
+	  </view>
+  </view>
+  
+</view>

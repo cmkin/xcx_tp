@@ -1,0 +1,63 @@
+.index_edit .main {
+  background-color: #fff;
+  overflow: hidden;
+}
+.index_edit .main .add {
+  width: 280rpx;
+  height: 280rpx;
+  margin: 40rpx auto;
+  background: #D3E8FF;
+  border-radius: 12rpx;
+  text-align: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.index_edit .main .add .no {
+  padding-top: 30rpx;
+  display: none;
+  color: #288CFF;
+}
+.index_edit .main .add .no image {
+  display: block;
+  margin: 40rpx auto;
+  width: 60rpx;
+  height: 60rpx;
+}
+.index_edit .main .add .has {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.index_edit .main .add .has .img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.index_edit .main .add .has .del {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30rpx;
+  height: 30rpx;
+}
+.index_edit .main .li {
+  width: 80%;
+  margin: auto;
+  margin-bottom: 30rpx;
+  background: #F2F3F7;
+  border-radius: 50rpx;
+  text-align: center;
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.index_edit .main .li input {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.index_edit .main .blue {
+  background: linear-gradient(270deg, #2A74FF 0%, #2AA0FF 100%);
+}
+.index_edit .main .blue text {
+  color: #fff;
+}
