@@ -3,7 +3,7 @@
 	<view class="nav-bar {{isWhite=='true'?'nav-bar-white':''}}" style="height: {{navHeight}}px;background-color:{{navColor}};"
 	 catchtap="toTop">
 		
-	 
+		<image class="bg" src="../../images/Bg_Titlebar02.png"></image>
 		<text class="navbar-title" style="top:{{navTitleTop}}px;">{{navTitle}}</text>
 		
 		 <view wx:if="{{noArrow=='false'&&isArrowWhite=='false'&&isNavHome=='false'}}" catchtap="navBack" class="navbar-icon-wrap"

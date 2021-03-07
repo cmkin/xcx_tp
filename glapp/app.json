@@ -22,20 +22,20 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "/images/Back2.png",
-        "selectedIconPath": "/images/Back2.png",
+        "iconPath": "/images/1.png",
+        "selectedIconPath": "/images/11.png",
         "text": "菜品管理"
       },
       {
         "pagePath": "pages/classification/classification",
-        "iconPath": "/images/Back2.png",
-        "selectedIconPath": "/images/Back2.png",
+        "iconPath": "/images/2.png",
+        "selectedIconPath": "/images/22.png",
         "text": "分类管理"
       },
 	  {
 	    "pagePath": "pages/statistics/statistics",
-	    "iconPath": "/images/Back2.png",
-	    "selectedIconPath": "/images/Back2.png",
+	    "iconPath": "/images/3.png",
+	    "selectedIconPath": "/images/33.png",
 	    "text": "数据统计"
 	  }
     ]
