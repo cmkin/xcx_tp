@@ -6,16 +6,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-	winHeightTab:0
+	winHeightTab:0,
+	id:null,
+	item:{
+		dishesName:'',
+		categoryId:'',
+		dishesPic:''
+	}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+		console.log(options.item)
+		if(options.id){
+			this.setData({
+				id:options.id
+			})
+		}else{
+			let item = JSON.parse(decodeURIComponent(options.item))
+			this.setData({
+				item: {
+					dishesName:item.dishes_name,
+					categoryId:item.dishes_id,
+					dishesPic:item.dishes_thumb
+				}
+			})
+		}
+		console.log(JSON.parse(decodeURIComponent(options.item)))
+		
   },
-
+  delimg(){
+	  this.setData({
+		  'item.dishesPic':''
+	  })
+  },
+  back(){
+	  wx.navigateBack()
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

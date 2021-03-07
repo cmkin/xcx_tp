@@ -6,14 +6,46 @@ Page({
    * 页面的初始数据
    */
   data: {
-	winHeightTab:0
+	winHeightTab:0,
+	item:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+	  this.setData({
+		  item:JSON.parse(decodeURIComponent(options.item))
+	  })
+		console.log(  )
+  },
+  del(){
+	  wx.showModal({
+	  	title: '提示',
+	  	content: '您是否确定删除？',
+	  	success: (res) => {
+	  		if (res.confirm) {
+	  			app.post({
+	  				url: "menu/delPatch",
+	  				data: {
+	  					ids: this.data.item.dishes_id
+	  				},
+	  				method: "POST",
+	  				success: (res2) => {
+	  					wx.navigateBack()
+	  				}
+	  			})
+	  
+	  		} else if (res.cancel) {
+	  
+	  		}
+	  	}
+	  })
+  },
+  edit(){
+	 wx.navigateTo({
+	 	url: '../edit/edit?item=' + encodeURIComponent(JSON.stringify(this.data.item)) 
+	 }) 
   },
 
   /**

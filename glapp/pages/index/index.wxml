@@ -5,28 +5,28 @@
   <view class="main clearfix" style="height: {{winHeightTab+'px'}};">
 	  <view class="left">
 		  <view class="ul">
-			  <view class="li" wx:for="{{10}}">
-				  <text class="{{index==0?'active':''}}">荤菜</text>
+			  <view class="li" bindtap="changeCai" data-id="{{item.id}}" wx:for="{{meunList}}">
+				  <text  class="{{item.id==meunActive?'active':''}}">{{item.category_name}}</text>
 			  </view>
 		  </view>
 	  </view>
 	  
 	  <view class="right">
 		  <view class="ul clearfix">
-			  <view class="li {{index==0?'active':''}}"  wx:for="{{10}}">
-				<image class="img" src="https://dss3.baidu.com/-rVXeDTa2gU2pMbgoY3K/it/u=1537044454,991969746&fm=202&mola=new&crop=v1"></image>
-				<text>清炒罗比</text>
+			  <view bindtap="changeCaiItem" data-item="{{item}}" class="li {{item.active?'active':''}}"  wx:for="{{caiList}}">
+				<image class="img" src="{{item.dishes_thumb}}"></image>
+				<text>{{item.dishes_name}}</text>
 				<image src="../../images/bzbf.png" class="yb"></image>
 			  </view>
 		  </view>
-		  <image src="../../images/ads.png" class="add"></image>
+		  <image bindtap="addCai" src="../../images/ads.png" class="add"></image>
 		  <view class="delete clearfix">
 			  <view class="l">
-				  已选择菜品：0
+				  已选择菜品：{{caiListLength}}
 			  </view>
 			  <view class="r">
-				  <text>批量删除</text>
-				  <text>确认删除</text>
+				  <text bindtap="isdelM" wx:if="{{!isdel}}">批量删除</text>
+				  <text bindtap="isdelM" wx:if="{{isdel}}">确认删除</text>
 			  </view>
 		  </view>
 	  </view>

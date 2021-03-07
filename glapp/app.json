@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
 	  "pages/statistics/statistics",
     "pages/classification/classification",
     "pages/index/detail/detail",
-    "pages/index/edit/edit",
-    "pages/index/index"
+    "pages/index/edit/edit"
+    
     
   ],
   "window": {

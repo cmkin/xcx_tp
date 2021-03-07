@@ -14,7 +14,6 @@
 }
 .index_edit .main .add .no {
   padding-top: 30rpx;
-  display: none;
   color: #288CFF;
 }
 .index_edit .main .add .no image {

@@ -4,9 +4,29 @@
 	<view class="main">
 		<view class="t">请选择统计时间</view>
 		<view class="time">
-			<text>2021-03-01</text>
+			<picker style="display: inline-block;width: 45%;" mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+
+				<text>{{date}}</text>
+			</picker>
+
 			至
-			<text>2021-06-31</text>
+			<picker style="display: inline-block;width: 45%;" mode="date" value="{{date2}}" start="2015-09-01" bindchange="bindDateChange2">
+			
+				<text>{{date2}}</text>
+			</picker>
+		</view>
+		<view class="t">请输入关键词搜索</view>
+		<input class="gjc" type="text" placeholder="请输入关键词" />
+	</view>
+	<view class="lists">
+		<view class="li" wx:for="{{5}}">
+			<view class="t clearfix">
+				<text>菜01</text>
+				<text>520</text>
+			</view>
+			<view class="pro">
+				<view class="m"></view>
+			</view>
 		</view>
 	</view>
 </view>

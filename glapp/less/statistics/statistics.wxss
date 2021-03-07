@@ -1,0 +1,52 @@
+.statistics .main {
+  background-color: #fff;
+  padding: 30rpx;
+}
+.statistics .main .t {
+  color: #333333;
+  font-size: 32rpx;
+  margin-bottom: 30rpx;
+}
+.statistics .main .time {
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+.statistics .main .time text {
+  background: #F0F4FC;
+  border-radius: 29rpx;
+  display: inline-block;
+  width: 100%;
+  padding: 8rpx 0;
+}
+.statistics .main .gjc {
+  background: #F0F4FC;
+  border-radius: 29rpx;
+  display: inline-block;
+  width: 100%;
+  padding: 8rpx 0rpx;
+}
+.statistics .lists {
+  margin: 20rpx;
+  background-color: #fff;
+  padding: 30rpx;
+  border-radius: 20rpx;
+}
+.statistics .lists .li {
+  margin-bottom: 30rpx;
+}
+.statistics .lists .li .t text:last-child {
+  float: right;
+}
+.statistics .lists .li .pro {
+  height: 16rpx;
+  width: 100%;
+  border-radius: 20rpx;
+  background-color: #F0F4FC;
+}
+.statistics .lists .li .pro .m {
+  margin-top: 20rpx;
+  width: 30%;
+  height: 100%;
+  border-radius: 20rpx;
+  background-color: #288CFF;
+}
