@@ -19,7 +19,7 @@
 	display: block;
 }
 .logo{
-  width: 80rpx;
+  width: 120rpx;
   height: 60rpx;
   position:absolute ;
   bottom: 25rpx;

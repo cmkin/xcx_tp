@@ -7,7 +7,7 @@
 .index .main .left {
   background-color: #fff;
   padding: 30rpx;
-  width: 30%;
+  width: 25%;
   box-shadow: 8px 0px 8px 0px rgba(0, 0, 0, 0.03);
   box-sizing: border-box;
 }
@@ -28,7 +28,7 @@
   color: #fff;
 }
 .index .main .right {
-  width: 70%;
+  width: 75%;
   padding: 20rpx;
   position: relative;
   box-sizing: border-box;
@@ -89,7 +89,7 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 70%;
+  width: 75%;
   padding: 20rpx;
   font-size: 28rpx;
   box-sizing: border-box;

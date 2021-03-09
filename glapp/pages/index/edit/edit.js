@@ -92,6 +92,7 @@ Page({
         id:this.data.item.dishes_id,
         dishesThumb:this.data.item.dishesPic
       },
+      error:'菜品名称不能重复',
       success(res){
         console.log(res)
         wx.showToast({
@@ -117,6 +118,7 @@ Page({
         dishesThumb:this.data.item.dishesPic
       },
       method:"POST",
+      error:'菜品名称不能重复',
       success(res){
         console.log(res)
         wx.showToast({
