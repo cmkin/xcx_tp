@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/statistics/statistics",
     "pages/index/index",
+    "pages/statistics/statistics",
+   
 	  
     "pages/classification/classification",
     "pages/index/detail/detail",

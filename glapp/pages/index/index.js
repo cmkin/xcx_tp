@@ -38,7 +38,18 @@ Page({
 	},
 	onShow(){
 		if(this.data.meunActive){
-			this.getCai(this.data.meunActive)
+			app.post({
+				url: "category/list",
+				data: {},
+				method: "GET",
+				success: (res) => {
+					this.setData({
+						meunList: res.datas
+					})
+					this.getCai(this.data.meunActive)
+				}
+			})
+			
 		}
 	},
 	getCai(id) {
