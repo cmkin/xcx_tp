@@ -63,7 +63,7 @@ App({
 					options.success(res.data)
 				} else {
 					wx.showToast({
-						title: '请求失败',
+						title: options.error ? options.error : '请求失败',
 						icon: "error"
 					})
 				}
@@ -75,7 +75,7 @@ App({
 		})
 	},
 	globalData: {
-		baseurl:'http://23.91.96.119/',
+		baseurl:'http://139.224.247.43/',
 		platform: 'ios',
 		pixelRatio: 2,
 		statusBarHeight: 20,

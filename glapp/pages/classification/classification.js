@@ -53,6 +53,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '是否确认删除?',
+      error:'请删除分类下的菜品后删除该分类',
       success: (res) =>{
         if (res.confirm) {
           console.log('用户点击确定')

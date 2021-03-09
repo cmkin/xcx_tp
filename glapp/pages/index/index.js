@@ -37,7 +37,7 @@ Page({
 		})
 	},
 	onShow(){
-		if(this.data.meunActive){
+		if(this.data.meunActive){}
 			app.post({
 				url: "category/list",
 				data: {},
@@ -50,7 +50,7 @@ Page({
 				}
 			})
 			
-		}
+		
 	},
 	getCai(id) {
 		app.post({

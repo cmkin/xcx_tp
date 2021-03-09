@@ -1,6 +1,6 @@
 
 
-var  baseurl = 'http://23.91.96.119/'
+var  baseurl = 'http://139.224.247.43/'
 
 axios.defaults.baseURL = baseurl;
 //axios.defaults.headers.common['Authorization'] = '';
