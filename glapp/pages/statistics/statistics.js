@@ -1,4 +1,5 @@
 // pages/statistics/statistics.js
+const app =getApp()
 Page({
 
 	/**
@@ -13,7 +14,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function(options) {
-
+		this.getlist()
 	},
 	getlist(){
 		app.post({
@@ -21,6 +22,9 @@ Page({
 			data:{
 				startDate:this.data.date,
 				endDate:this.data.date2
+			},
+			success(res){
+				console.log(res)
 			}
 		})
 	},
@@ -29,12 +33,14 @@ Page({
 		this.setData({
 			date: e.detail.value
 		})
+		this.getlist()
 	},
 	bindDateChange2: function(e) {
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		this.setData({
 			date2: e.detail.value
 		})
+		this.getlist()
 	},
 
 	/**
