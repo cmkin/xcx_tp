@@ -19,7 +19,8 @@ window.appMain={
 				cailist:[],
 				activeCai:[],
 				loading:false,
-				tx:false
+				tx:false,
+				text:'投票成功'
 			},
 			mounted() {
 				_this = this
@@ -72,6 +73,9 @@ window.appMain={
 						
 					]
 					
+					var fingerprint = new Fingerprint().get();
+					
+					
 					for(let i in this.activeCai){
 						console.log(this.activeCai[i])
 						if(votes.some(function(tt){ return tt.category_id == _this.activeCai[i].category_id })){
@@ -93,15 +97,24 @@ window.appMain={
 					this.loading = true
 					axios.post("votes/send",JSON.stringify( {
 						votes,
-						deviceId:123
+						deviceId:fingerprint
 					}) ).then(function(res){
 						_this.loading = false
 						if(res.data.code==200){
 							_this.tx = true
+							_this.text="投票成功"
 							setTimeout(function(){
 								_this.tx = false
+								
 							},2000)
 							
+						}else{
+							_this.tx = true
+							_this.text="投票失败"
+							setTimeout(function(){
+								_this.tx = false
+								
+							},2000)
 						}
 					})
 				}
