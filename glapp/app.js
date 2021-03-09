@@ -42,8 +42,8 @@ App({
 			console.log(e)
 		}
 	},
-	post: (options) => {
-		let baseurl = options.baseurl ? options.baseurl : 'http://23.91.96.119/'
+	post: function(options) {
+		let baseurl = options.baseurl ? options.baseurl : this.globalData.baseurl
 		wx.showLoading()
 
 		let config = {
@@ -75,6 +75,7 @@ App({
 		})
 	},
 	globalData: {
+		baseurl:'http://23.91.96.119/',
 		platform: 'ios',
 		pixelRatio: 2,
 		statusBarHeight: 20,

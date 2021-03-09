@@ -3,7 +3,7 @@
 	<navbar navTitle="编辑菜品" style="width:200rpx;"></navbar>
 	<view class="main" style="height: {{winHeightTab+'px'}};">
 		<view class="add">
-			<view class="no" wx:if="{{!item.dishesPic}}">
+			<view class="no" bindtap="changeImg" wx:if="{{!item.dishesPic}}">
 				<image src="../../../images/add.png"></image>
 				<text>上传菜品图片</text>
 			</view>
@@ -13,12 +13,12 @@
 			</view>
 		</view>
 		<view class="li">
-			<input type="text" value="{{item.dishesName}}" placeholder="请输入菜品名称" />
-		</view>
-		<view class="li blue" wx:if="{{!id}}">
-			<text>确认添加菜品</text>
+			<input type="text" bindinput="inputChange" value="{{item.dishesName}}" placeholder="请输入菜品名称" />
 		</view>
 		<view class="li blue" wx:if="{{id}}">
+			<text>确认添加菜品</text>
+		</view>
+		<view bindtap="saveEdit" class="li blue" wx:if="{{!id}}">
 			<text>保存菜品</text>
 		</view>
 		<view bindtap="back" class="li" style="border: 2rpx solid #E5E5E5;background-color: #fff;">

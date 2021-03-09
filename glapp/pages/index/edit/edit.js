@@ -19,7 +19,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-		console.log(options.item)
+		console.log(options)
 		if(options.id){
 			this.setData({
 				id:options.id
@@ -29,18 +29,76 @@ Page({
 			this.setData({
 				item: {
 					dishesName:item.dishes_name,
-					categoryId:item.dishes_id,
-					dishesPic:item.dishes_thumb
+					dishes_id:item.dishes_id,
+          dishesPic:item.dishes_thumb,
+          category_id:item.category_id
 				}
 			})
-		}
-		console.log(JSON.parse(decodeURIComponent(options.item)))
+      
+      console.log(JSON.parse(decodeURIComponent(options.item)))
+
+    }
+	
 		
+  },
+  inputChange(e){
+     console.log(e)
+     this.setData({
+       'item.dishesName':e.detail.value
+     })
   },
   delimg(){
 	  this.setData({
 		  'item.dishesPic':''
 	  })
+  },
+  changeImg(){
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success :(res)=> {
+        // tempFilePath可以作为img标签的src属性显示图片
+        const tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths,app.globalData.baseurl)
+        wx.showLoading()
+        wx.uploadFile({
+          url:app.globalData.baseurl+'menu/editPic', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'dishesPic',
+          formData: {
+            'id': this.data.item.dishes_id
+          },
+          success: (res2)=>{
+            wx.hideLoading()
+            console.log(res2)
+            this.setData({
+              'item.dishesPic':tempFilePaths[0]
+            })
+          }
+        })
+      }
+    })
+  },
+  saveEdit(){
+    app.post({
+      url:"menu/edit",
+      method:'POST',
+      data:{
+        dishesName:this.data.item.dishesName,
+        categoryId:this.data.item.category_id,
+        id:this.data.item.dishes_id
+      },
+      success(res){
+        console.log(res)
+        wx.showToast({
+          title: '编辑成功',
+          icon:"success"
+        })
+       
+       
+      }
+    })
   },
   back(){
 	  wx.navigateBack()

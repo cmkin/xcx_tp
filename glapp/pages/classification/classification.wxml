@@ -9,8 +9,8 @@
 			</view>
 		</view>
 		<view class="ul">
-			<view class="li clearfix" wx:for="{{10}}">
-				<text>荤菜</text>
+			<view class="li clearfix" wx:for="{{lists}}">
+				<text>{{ item.category_name  }}</text>
 				<view class="r">
 					<image src="../../images/edit.png"></image>
 					<image src="../../images/del2.png"></image>
@@ -23,7 +23,7 @@
 	</view>
 	
 	
-	<view class="edit">
+	<view class="edit" wx:if="{{addFlag}}">
 		<view class="main">
 			<view class="t">{{ true?'添加分类':'编辑分类' }}</view>
 			<view class="li">
