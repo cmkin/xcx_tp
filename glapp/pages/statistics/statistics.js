@@ -15,6 +15,15 @@ Page({
 	onLoad: function(options) {
 
 	},
+	getlist(){
+		app.post({
+			url:"votes/stat",
+			data:{
+				startDate:this.data.date,
+				endDate:this.data.date2
+			}
+		})
+	},
 	bindDateChange: function(e) {
 		console.log('picker发送选择改变，携带值为', e.detail.value)
 		this.setData({
