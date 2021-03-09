@@ -7,7 +7,9 @@ Page({
     navHeight:0,
     addFlag:false,
     lists:[],
-    keyWord:''
+    keyWord:'',
+    type:null,
+    name:''
   },
 
   onReady(){
@@ -17,6 +19,9 @@ Page({
 	  })
   },
   onLoad() {
+   this.getlist()
+  },
+  getlist(){
     app.post({
       url:'category/list',
       data:{
@@ -29,5 +34,42 @@ Page({
       }
     })
   },
+  edit(e){
+    let type = e.currentTarget.dataset.type
+     console.log(e)
+
+    this.setData({
+      addFlag:true,
+      name:type==1?'':'',
+      type:type
+    })
+
+  },
+  cancel(){
+    this.setData({
+      addFlag:false
+    })
+  },
+  inputChange(e){
+    let value  = e.detail.value
+      this.setData({
+        name:value
+      })
+  },
+  addName(){
+    app.post({
+      url:'category/add',
+      data:{
+        name:this.data.name
+      },
+      method:'POST',
+      success:(res)=>{
+        wx.showToast({
+          title: '添加成功'
+        })
+        this.getlist()
+      }
+    })
+  }
   
 })

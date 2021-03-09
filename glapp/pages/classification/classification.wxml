@@ -18,7 +18,7 @@
 			</view>
 		</view>
 		
-		<image class="add" src="../../images/ads.png"></image>
+		<image class="add" data-type="1" bindtap="edit" src="../../images/ads.png"></image>
 		
 	</view>
 	
@@ -27,15 +27,15 @@
 		<view class="main">
 			<view class="t">{{ true?'添加分类':'编辑分类' }}</view>
 			<view class="li">
-				<input placeholder="请输入分类名称" type="text" />
+				<input bindinput="inputChange"  value="{{name}}" placeholder="请输入分类名称" type="text" />
 			</view>
-			<view class="li blue">
-				<text>确认添加菜品</text>
+			<view class="li blue" wx:if="{{type==1}}">
+				<text bindtap="addName">确认添加菜品</text>
 			</view>
-			<view class="li blue">
+			<view class="li blue" wx:if="{{type==2}}">
 				<text>保存</text>
 			</view>
-			<view class="li" style="border: 2rpx solid #E5E5E5;background-color: #fff;">
+			<view bindtap="cancel" class="li" style="border: 2rpx solid #E5E5E5;background-color: #fff;">
 				<text>取消</text>
 			</view>
 		</view>
