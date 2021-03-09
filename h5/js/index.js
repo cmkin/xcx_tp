@@ -110,7 +110,7 @@ window.appMain={
 							
 						}else{
 							_this.tx = true
-							_this.text="投票失败"
+							_this.text="今天已投票，请明日再来"
 							setTimeout(function(){
 								_this.tx = false
 								
