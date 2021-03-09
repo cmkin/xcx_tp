@@ -63,17 +63,17 @@ Page({
         console.log(tempFilePaths,app.globalData.baseurl)
         wx.showLoading()
         wx.uploadFile({
-          url:app.globalData.baseurl+'menu/editPic', //仅为示例，非真实的接口地址
+          url:app.globalData.baseurl+'menu/pic', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'dishesPic',
           formData: {
-            'id': this.data.item.dishes_id
+           
           },
           success: (res2)=>{
             wx.hideLoading()
-            console.log(res2)
+            console.log(JSON.parse(res2.data) )
             this.setData({
-              'item.dishesPic':tempFilePaths[0]
+              'item.dishesPic':JSON.parse(res2.data).datas.imgUrl
             })
           }
         })
@@ -87,7 +87,8 @@ Page({
       data:{
         dishesName:this.data.item.dishesName,
         categoryId:this.data.item.category_id,
-        id:this.data.item.dishes_id
+        id:this.data.item.dishes_id,
+        dishesThumb:this.data.item.dishesPic
       },
       success(res){
         console.log(res)
@@ -96,6 +97,36 @@ Page({
           icon:"success"
         })
        
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 2,
+          })
+        }, 1000);
+       
+      }
+    })
+  },
+  addcai(){
+    app.post({
+      url:'menu/add',
+      data:{
+        dishesName:this.data.item.dishesName,
+        categoryId:this.data.id,
+        dishesThumb:this.data.item.dishesPic
+      },
+      method:"POST",
+      success(res){
+        console.log(res)
+        wx.showToast({
+          title: '添加成功',
+          icon:"success"
+        })
+       
+        setTimeout(() => {
+          wx.navigateBack({
+            delta: 1,
+          })
+        }, 1000);
        
       }
     })

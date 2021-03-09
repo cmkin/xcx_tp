@@ -6,6 +6,7 @@
 		<image class="bg" src="../../images/Bg_Titlebar02.png"></image>
 		<text class="navbar-title" style="top:{{navTitleTop}}px;">{{navTitle}}</text>
 		
+		<image src="/images/logo@2x.png" class="logo" wx:if="{{noArrow=='true'}}"></image>
 		 <view wx:if="{{noArrow=='false'&&isArrowWhite=='false'&&isNavHome=='false'}}" catchtap="navBack" class="navbar-icon-wrap"
 		 style="top:{{navTitleTop}}px;">
 			<image class="navbar-icon" src="../../images/Back2.png"></image>

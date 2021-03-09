@@ -15,7 +15,7 @@
 		<view class="li">
 			<input type="text" bindinput="inputChange" value="{{item.dishesName}}" placeholder="请输入菜品名称" />
 		</view>
-		<view class="li blue" wx:if="{{id}}">
+		<view bindtap="addcai" class="li blue" wx:if="{{id}}">
 			<text>确认添加菜品</text>
 		</view>
 		<view bindtap="saveEdit" class="li blue" wx:if="{{!id}}">

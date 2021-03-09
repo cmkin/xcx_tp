@@ -5,15 +5,15 @@
 		<view class="search" style="top: {{navHeight+'px'}};">
 			<view class="c">
 				<image src="../../images/Search.png"></image>
-				<input type="text" placeholder="请输入搜索内容" />
+				<input bindinput="serachKey" confirm-type="search" bindconfirm="getlist" type="text" placeholder="请输入搜索内容" />
 			</view>
 		</view>
 		<view class="ul">
 			<view class="li clearfix" wx:for="{{lists}}">
 				<text>{{ item.category_name  }}</text>
 				<view class="r">
-					<image src="../../images/edit.png"></image>
-					<image src="../../images/del2.png"></image>
+					<image data-type="2" bindtap="edit" data-item="{{item}}" src="../../images/edit.png"></image>
+					<image data-item="{{item}}" bindtap="delFl"  src="../../images/del2.png"></image>
 				</view>
 			</view>
 		</view>
@@ -25,15 +25,15 @@
 	
 	<view class="edit" wx:if="{{addFlag}}">
 		<view class="main">
-			<view class="t">{{ true?'添加分类':'编辑分类' }}</view>
+			<view class="t">{{ type==1?'添加分类':'编辑分类' }}</view>
 			<view class="li">
-				<input bindinput="inputChange"  value="{{name}}" placeholder="请输入分类名称" type="text" />
+				<input bindinput="inputChange"  value="{{name}}" placeholder="请输入分类名称" type="text"  />
 			</view>
 			<view class="li blue" wx:if="{{type==1}}">
 				<text bindtap="addName">确认添加菜品</text>
 			</view>
-			<view class="li blue" wx:if="{{type==2}}">
-				<text>保存</text>
+			<view bindtap="saveName"  class="li blue" wx:if="{{type==2}}">
+				<text >保存</text>
 			</view>
 			<view bindtap="cancel" class="li" style="border: 2rpx solid #E5E5E5;background-color: #fff;">
 				<text>取消</text>
