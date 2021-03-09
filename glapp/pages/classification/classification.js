@@ -53,7 +53,7 @@ Page({
     wx.showModal({
       title: '提示',
       content: '是否确认删除?',
-      success (res) {
+      success: (res) =>{
         if (res.confirm) {
           console.log('用户点击确定')
 
@@ -63,10 +63,13 @@ Page({
               id:item.id
             },
             method:"post",
-            success(res2){
+            success:(res2)=>{
+              setTimeout(()=>{
                 wx.showToast({
                   title:"删除成功"
                 })
+              },500)
+               
                 this.getlist()
             }
           })

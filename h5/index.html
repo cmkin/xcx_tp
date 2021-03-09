@@ -179,10 +179,13 @@
 					transform: translateX(0px)
 				}
 			}
+			[v-cloak]{
+				display: none;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="index" id="app">
+		<div class="index" id="app" v-cloak>
 			<div class="top">
 				<p class="t">请选择您喜欢的菜品</p>
 				<div class="c">
@@ -221,7 +224,7 @@
 				<div id="preloader_3"></div>
 			</div>
 			
-			<div class="ts" v-if="false">
+			<div class="ts" v-if="tx">
 				<p>√</p>
 				<span>投票成功</span>
 			</div>

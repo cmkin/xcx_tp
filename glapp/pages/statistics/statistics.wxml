@@ -15,16 +15,16 @@
 				<text>{{date2}}</text>
 			</picker>
 		</view>
-		<view class="t">请输入关键词搜索</view>
-		<input class="gjc" type="text" placeholder="请输入关键词" />
+		<view wx:if="{{false}}" class="t">请输入关键词搜索</view>
+		<input wx:if="{{false}}"  class="gjc" type="text" placeholder="请输入关键词" />
 	</view>
 	<view class="lists">
-		<view class="li" wx:for="{{5}}">
+		<view class="li" wx:for="{{lists}}">
 			<view class="t clearfix">
-				<text>菜01</text>
-				<text>520</text>
+				<text>{{item.dishes_name}}({{item.category_name}})</text>
+				<text>{{item.hit}}</text>
 			</view>
-			<view class="pro">
+			<view class="pro" wx:if="{{false}}">
 				<view class="m"></view>
 			</view>
 		</view>

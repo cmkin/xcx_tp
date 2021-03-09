@@ -18,7 +18,8 @@ window.appMain={
 				flActive:null,
 				cailist:[],
 				activeCai:[],
-				loading:false
+				loading:false,
+				tx:false
 			},
 			mounted() {
 				_this = this
@@ -67,7 +68,42 @@ window.appMain={
 					
 				},
 				submit(){
-					axios.post()
+					let votes = [
+						
+					]
+					
+					for(let i in this.activeCai){
+						console.log(this.activeCai[i])
+						if(votes.some(function(tt){ return tt.category_id == _this.activeCai[i].category_id })){
+							votes = votes.map(function(t2){
+								if(t2.category_id == _this.activeCai[i].category_id){
+									t2.dishes.push(_this.activeCai[i].dishes_id)
+								}
+								return t2
+								
+							})
+						}else{
+							votes.push({
+								category_id:this.activeCai[i].category_id,
+								dishes:[this.activeCai[i].dishes_id]
+							})
+						}
+					}
+				
+					this.loading = true
+					axios.post("votes/send",JSON.stringify( {
+						votes,
+						deviceId:123
+					}) ).then(function(res){
+						_this.loading = false
+						if(res.data.code==200){
+							_this.tx = true
+							setTimeout(function(){
+								_this.tx = false
+							},2000)
+							
+						}
+					})
 				}
 			},
 			computed:{
