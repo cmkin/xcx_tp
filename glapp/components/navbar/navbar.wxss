@@ -19,10 +19,10 @@
 	display: block;
 }
 .logo{
-  width: 60rpx;
-  height: 40rpx;
+  width: 80rpx;
+  height: 60rpx;
   position:absolute ;
-  top: 40%;
+  bottom: 25rpx;
   left: 5%;
 }
 .nav-bar-white {

@@ -11,7 +11,7 @@ Page({
 		isdel: false,
 		caiListLength: 0
 	},
-	// 事件处理函数
+	// addCai
 	bindViewTap() {
 		wx.navigateTo({
 			url: '../logs/logs'
@@ -79,8 +79,9 @@ Page({
 		this.getCai(id)
 	},
 	addCai() {
+		let name = this.data.meunList.filter(tt=>tt.id == this.data.meunActive)[0].category_name
 		wx.navigateTo({
-			url: './edit/edit?id=' + this.data.meunActive
+			url: './edit/edit?id=' + this.data.meunActive +"&name="+name
 		})
 	},
 	isdelM() {

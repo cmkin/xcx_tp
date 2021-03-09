@@ -6,7 +6,7 @@
 	  <view class="left">
 		  <view class="ul">
 			  <view class="li" bindtap="changeCai" data-id="{{item.id}}" wx:for="{{meunList}}">
-				  <text  class="{{item.id==meunActive?'active':''}}">{{item.category_name}}</text>
+				  <text  class="omg {{item.id==meunActive?'active':''}}">{{item.category_name}}</text>
 			  </view>
 		  </view>
 	  </view>

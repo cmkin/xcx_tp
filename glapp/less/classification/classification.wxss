@@ -47,8 +47,8 @@
   position: fixed;
   right: 30rpx;
   bottom: 100rpx;
-  width: 60rpx;
-  height: 60rpx;
+  width: 100rpx;
+  height: 100rpx;
 }
 .classification .edit {
   position: fixed;

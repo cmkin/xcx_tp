@@ -29,8 +29,8 @@
 			<view class="li">
 				<input bindinput="inputChange"  value="{{name}}" placeholder="请输入分类名称" type="text"  />
 			</view>
-			<view class="li blue" wx:if="{{type==1}}">
-				<text bindtap="addName">确认添加菜品</text>
+			<view bindtap="addName" class="li blue" wx:if="{{type==1}}">
+				<text >确认添加分类</text>
 			</view>
 			<view bindtap="saveName"  class="li blue" wx:if="{{type==2}}">
 				<text >保存</text>

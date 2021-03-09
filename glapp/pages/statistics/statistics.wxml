@@ -24,8 +24,8 @@
 				<text>{{item.dishes_name}}({{item.category_name}})</text>
 				<text>{{item.hit}}</text>
 			</view>
-			<view class="pro" wx:if="{{false}}">
-				<view class="m"></view>
+			<view class="pro">
+				<view class="m" style="width:{{item.pro}}"></view>
 			</view>
 		</view>
 	</view>

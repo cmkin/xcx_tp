@@ -12,7 +12,8 @@ Page({
 		dishesName:'',
 		categoryId:'',
 		dishesPic:''
-	}
+  },
+  name:''
   },
 
   /**
@@ -22,7 +23,8 @@ Page({
 		console.log(options)
 		if(options.id){
 			this.setData({
-				id:options.id
+        id:options.id,
+        name:options.name
 			})
 		}else{
 			let item = JSON.parse(decodeURIComponent(options.item))

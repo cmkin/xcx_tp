@@ -51,6 +51,15 @@ Page({
 				endDate:this.data.date2
 			},
 			success:(res)=>{
+				let allNums = 0
+					for(let i in res.datas){
+						allNums+=Number(res.datas[i].hit) 
+					}
+					for(let i in res.datas){
+						res.datas[i].pro =Number(res.datas[i].hit)  / allNums * 100 +'%'
+					}
+					console.log(allNums)
+
 				this.setData({
 					lists:res.datas
 				})

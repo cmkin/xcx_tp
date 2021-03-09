@@ -12,6 +12,9 @@
 				<image bindtap="delimg" src="../../../images/del.png" class="del"></image>
 			</view>
 		</view>
+		<view class="li"  wx:if="{{id}}">
+			<input type="text" disabled value="{{name}}" placeholder="" />
+		</view>
 		<view class="li">
 			<input type="text" bindinput="inputChange" value="{{item.dishesName}}" placeholder="请输入菜品名称" />
 		</view>
