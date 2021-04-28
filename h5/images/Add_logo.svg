@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150px" height="150px" viewBox="0 0 150 150" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 5@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="20210421设计稿" transform="translate(-670.000000, -3492.000000)">
+            <g id="编组-5" transform="translate(670.000000, 3492.000000)">
+                <circle id="椭圆形" fill="#D3E8FF" cx="75" cy="75" r="75"></circle>
+                <path d="M75,47 C76.1045695,47 77,47.8954305 77,49 L77,73 L101,73 C102.104569,73 103,73.8954305 103,75 C103,76.1045695 102.104569,77 101,77 L77,77 L77,101 C77,102.104569 76.1045695,103 75,103 C73.8954305,103 73,102.104569 73,101 L73,77 L49,77 C47.8954305,77 47,76.1045695 47,75 C47,73.8954305 47.8954305,73 49,73 L73,73 L73,49 C73,47.8954305 73.8954305,47 75,47 Z" id="形状结合" fill="#288CFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

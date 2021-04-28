@@ -2,9 +2,11 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>投票</title>
+		<title>请选择您喜欢的菜品</title>
 		<meta name="viewport"
 			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/liMarquee.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
 		<style type="text/css">
 			.loading{
@@ -182,55 +184,311 @@
 			[v-cloak]{
 				display: none;
 			}
+			
+			.aixings{
+				position: absolute;
+				top: 0%;
+				left: 0;
+				width: 100%;
+				height: 100%;
+			}
+			.aixings img{
+				width: 30px;
+				display: inline-block;
+				position: absolute;
+				bottom: -50px;
+				left: 0;
+			}
+			.dh1{
+				animation: dhs 1s 1 linear;
+			}
+			@keyframes dhs{
+				from{
+					bottom: 0;
+					opacity: 1;
+				}
+				to{
+					bottom: 120%;
+					opacity: 0.5;
+				}
+			}
+			
+		</style>
+		<style type="text/css">
+		
+		/* star */
+		
+		#star{position:relative;width:600px;margin:20px auto;height:24px;}
+		
+		#star ul,#star span{float:left;display:inline;height:19px;line-height:19px;}
+		
+		#star ul{margin:0 10px;}
+		
+		#star li{float:left;width:24px;cursor:pointer;text-indent:-9999px;background:url(images/star.png) no-repeat;}
+		
+		#star strong{color:#f60;padding-left:10px;}
+		
+		#star li.on{background-position:0 -28px;}
+		
+		#star p{position:absolute;top:20px;width:159px;height:60px;display:none;background:url(images/icon.gif) no-repeat;padding:7px 10px 0;}
+		
+		#star p em{color:#f60;display:block;font-style:normal;}
+		
 		</style>
 	</head>
 	<body>
 		<div class="index" id="app" v-cloak>
-			<div class="top">
-				<p class="t">请选择您喜欢的菜品</p>
-				<div class="c">
-					<p class="a">我已选择的菜品</p>
-					<ul class="clearfix">
-						<li v-for="item in activeCai">{{item.dishes_name}} <img @click="delChange(item)"
-								src="images/close.png"> </li>
-					</ul>
+			<div class="banner">
+				<img src="images/banner.png" >
+			</div>
+			
+			<div class="main_wrap">
+				<div class="white" style="margin-bottom: 1px;border-radius: 20px 20px 0 0;">
+					
+				
+				<div class="logo">
+					<b>两棵树餐桌</b>
+					<span>
+						<img src="images/x_c.png" >
+						4.9分
+					</span>
+					<div class="r">
+						<img src="images/logo.png" >
+					</div>
+				</div>
+				<p class="js">这是简要的内容介绍，这是简要的内容介绍，这是简要的内容介绍这是简要的内容。</p>
+				<div class="jq22">
+					<p>公告：这是公告的内容，走马灯式内容轮播式文字出现播放</p>
+				</div>
+				<ul class="clearfix tabs">
+					
+					<li @click="changeTab(index)" :class="tabActive==index?'active':''" v-for="item,index in ['点评','点餐','评价','厨师资料']"> <span>{{item}}<i></i></span> </li>
+					
+				</ul>
+				</div>
+				
+				<div v-if="tabActive==0" class="dianping clearfix">
+					<div class="left">
+						<ul>
+							<li @click="changeFl(item.id)" style="margin-bottom: 10px;" class=""
+								:class="flActive===item.id?'active':''" v-for="item in fllist">
+								<span class="omg">{{item.category_name}}</span>
+							</li>
+						</ul>
+					</div>
+					<div class="right">
+						<ul class="clearfix">
+							<li  style="overflow: hidden;" :class="getACtiveClass(item)" v-for="item in cailist">
+								<img class="img" :src="item.dishes_thumb">
+								<div class="r">
+									<b>{{item.dishes_name}}</b>
+									<div class="tags clearfix">
+										<span>标签</span>
+										<span>标签</span>
+										<span>标签</span>
+									</div>
+									<div class="dx" @click="showDianping(item)">
+										<img src="images/x_l.png" >
+										点评菜品
+									</div>
+								</div>
+								
+								
+							</li>				
+						</ul>
+					</div>
+				</div>
+				
+				
+				<div v-if="tabActive==1" class="dc_test clearfix">
+					<div class="top">
+						<!-- <p class="t">请选择您喜欢的菜品</p> -->
+						<div class="c">
+							<p class="a">我已选择的菜品(0)</p>
+								
+							<ul class="clearfix" style="">
+					
+								<li v-for="item in getCactiveCai">{{item.dishes_name}} <img @click="delChange(item)"
+										src="images/close.png"> </li>
+					
+								<span style="height: 30px;opacity: 0;display: inline-block;">sdasd</span>
+							</ul>
+						</div>
+					
+					</div>
+					
+					<div class="main clearfix">
+						<div class="left">
+							<ul>
+								<li @click="changeFl(item.id)" style="margin-bottom: 10px;" class=""
+									:class="flActive===item.id?'active':''" v-for="item in fllist">
+									<span class="omg">{{item.category_name}}</span>
+								</li>
+							</ul>
+						</div>
+						<div class="right">
+							<ul class="clearfix">
+								<li @click="changeCai(item)" style="overflow: hidden;" :class="getACtiveClass(item)" v-for="item in cailist">
+									<img class="img" :src="item.dishes_thumb">
+									<span>{{item.dishes_name}}</span>
+									<image src="./images/bzbf.png" class="yb"></image>
+									<div class="aixings" v-if="getACtiveClass(item)">
+										<img style="left: 10%;animation-duration: 3s;" class="dh1" src="img/1.png" >
+										<img style="left: 20%;animation-duration: 2s;" class="dh1" src="img/2.png" >
+										<img style="left: 40%;animation-duration: 1s;" class="dh1" src="img/3.png" >
+										<img style="left: 60%;animation-duration: 1.5s;" class="dh1" src="img/4.png" >
+										<img style="left: 80%;animation-duration: 2.5s;" class="dh1" src="img/5.png" >
+									</div>
+								</li>				
+							</ul>
+						</div>
+					</div>
+					
+					
+				</div>
+				
+				<div class="diancan" v-if="false">
+					<div class="white">
+					<div class="times">
+						<span>
+							2021-04-20
+							<img src="images/j_x.png" >
+						</span>
+						<span>
+							早餐
+							<img src="images/j_x.png" >
+							<!-- <ul>
+								<li>早餐</li>
+								<li>午餐</li>
+								<li>晚餐</li>
+							</ul> -->
+						</span>
+					</div>
+					<div class="zt">这是今日的主题内容，这是今日的主题内容</div>
+					
+					<div class="top">
+						<!-- <p class="t">请选择您喜欢的菜品</p> -->
+						<div class="c">
+							<p class="a">我已选择的菜品(0)</p>
+								
+							<ul class="clearfix" style="">
+					
+								<li v-for="item in getCactiveCai">{{item.dishes_name}} <img @click="delChange(item)"
+										src="images/close.png"> </li>
+					
+								<span style="height: 30px;opacity: 0;display: inline-block;">sdasd</span>
+							</ul>
+						</div>
+					</div>
+					</div>
+					
+					<div class="lists">
+						<ul class="lis">
+							<li v-for="item in ['主菜','小菜','主食','水果沙拉']">
+								<b>{{item}}</b>
+								<div class="swiper-container">
+								    <div class="swiper-wrapper">
+								        <div class="swiper-slide active" v-for="item in 5">
+											<img class="ba" src="images/banner.png" >
+											<img src="images/bzbf.png" >
+											<div class="pd">
+												<b class="omg">红烧肉</b>
+												<ul class="tags clearfix">
+													<li>标签</li>
+													<li>标签标签</li>
+													<li>标签标签</li>
+												</ul>
+											</div>
+										</div>
+								    </div>
+								</div>
+							</li>
+						</ul>
+					</div>
+					
+				</div>
+				
+				
+				
+			
+			</div>
+			
+			
+			
+			<div class="dianping_alert" v-if="dianping_alert">
+				<div class="d_main">
+					<div class="cc">
+						<div class="title clearfix">
+							请您点评菜品：{{dianpingInfos.dishes_name}}
+							<img @click="dianping_alert = false" src="images/close_h.png" >
+						</div>
+						<div class="tp">
+							<img :src="dianpingInfos.dishes_thumb" >
+						</div>
+						
+						<div id="star" style="text-align: center;width: 100%;margin: 0;height: auto;">
+						
+							<span></span>
+						
+							<ul style="float: none;display: inline-block;" class="clearfix">
+						
+								<li><a href="javascript:;">1</a></li>
+						
+								<li><a href="javascript:;">2</a></li>
+						
+								<li><a href="javascript:;">3</a></li>
+						
+								<li><a href="javascript:;">4</a></li>
+						
+								<li><a href="javascript:;">5</a></li>
+						
+							</ul>
+						
+							<span style="display: block;float: none;width: 100%;"></span>
+						
+							<p></p>
+						
+						</div>
+						
+						<div class="tags">
+							<span>评价标签</span>
+							<span>评价标签</span>
+							<span>评价标签</span>
+							<span>评价标签</span>
+						</div>
+						
+						<div class="textarea">
+							<textarea rows="" cols="">
+								
+							</textarea>
+						</div>
+						
+					</div>
+					
+					<div class="btns">
+						<span @click="dianping_alert = false">取消</span>
+						<span @click="fbpj">发表评价</span>
+					</div>
+					
 				</div>
 			</div>
+			
 
-			<div class="main">
-				<div class="left">
-					<ul>
-						<li @click="changeFl(item.id)" style="margin-bottom: 10px;" class=""
-							:class="flActive===item.id?'active':''" v-for="item in fllist">
-							<span class="omg">{{item.category_name}}</span>
-						</li>
-					</ul>
-				</div>
-				<div class="right">
-					<ul class="clearfix">
-						<li @click="changeCai(item)" :class="getACtiveClass(item)" v-for="item in cailist">
-							<img class="img" :src="item.dishes_thumb">
-							<span>{{item.dishes_name}}</span>
-							<image src="./images/bzbf.png" class="yb"></image>
-						</li>
-
-					</ul>
-				</div>
-			</div>
-
-
-			<div class="submit" @click="submit()">提交</div>
+			<div class="submit"  v-if="tabActive==1" @click="submit()">提交</div>
 			<div class="loading" v-if="loading">
 				<div id="preloader_3"></div>
 			</div>
 			
 			<div class="ts" v-if="tx">
-				<p> {{text=="投票成功"?'√':'X' }} </p>
+				<p> {{text=="投票成功"?'√':'' }} </p>
 				<span>{{text}}</span>
 			</div>
 
 		</div>
 	</body>
+	<script src="js/jq.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.liMarquee.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/ie.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/axios.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
@@ -238,5 +496,30 @@
 	<script src="js/fingerprint.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		appMain.init()
+		//跑马灯初始化
+		$(function(){
+			$('.jq22').liMarquee();
+		});
+		//点餐滑动
+		var mySwiper = new Swiper ('.swiper-container', {
+		    //direction: 'vertical', // 垂直切换选项
+		    //loop: true, // 循环模式选项
+			slidesPerView :'auto'
+		  })
 	</script>
+	
+	<script type="text/javascript">
+	
+	window.onload = function (){
+	
+	
+	
+		
+	
+		
+	
+	};
+	
+	</script>
+	
 </html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="690px" height="258px" viewBox="0 0 690 258" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>编组 6@2x</title>
+    <g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="20210421设计稿" transform="translate(-130.000000, -3204.000000)">
+            <g id="编组-6" transform="translate(130.000000, 3204.000000)">
+                <path d="M12,0 L678,0 C684.627417,-1.21743675e-15 690,5.372583 690,12 L690,246 C690,252.627417 684.627417,258 678,258 L12,258 C5.372583,258 8.11624501e-16,252.627417 0,246 L0,12 C-8.11624501e-16,5.372583 5.372583,-1.12170611e-14 12,0 Z" id="BG" fill="#D3E8FF"></path>
+                <text id="上传图片" font-family="PingFangSC-Regular, PingFang SC" font-size="24" font-weight="normal" fill="#288CFF">
+                    <tspan x="297" y="182">上传图片</tspan>
+                </text>
+                <path d="M345,69 C346.104569,69 347,69.8954305 347,71 L347,95 L371,95 C372.104569,95 373,95.8954305 373,97 C373,98.1045695 372.104569,99 371,99 L347,99 L347,123 C347,124.104569 346.104569,125 345,125 C343.895431,125 343,124.104569 343,123 L343,99 L319,99 C317.895431,99 317,98.1045695 317,97 C317,95.8954305 317.895431,95 319,95 L343,95 L343,71 C343,69.8954305 343.895431,69 345,69 Z" id="形状结合" fill="#288CFF"></path>
+            </g>
+        </g>
+    </g>
+</svg>

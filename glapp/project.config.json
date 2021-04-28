@@ -42,7 +42,7 @@
   "compileType": "miniprogram",
   "libVersion": "2.15.0",
   "appid": "wxa5658cf1749420f7",
-  "projectname": "miniprogram-1",
+  "projectname": "glapp",
   "debugOptions": {
     "hidedInDevtools": []
   },
