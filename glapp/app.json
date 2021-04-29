@@ -1,13 +1,12 @@
 {
   "pages": [
+	  "pages/recipes/recipes",
+    "pages/menu/menu",
     "pages/index/index",
     "pages/statistics/statistics",
-   
-	  
     "pages/classification/classification",
     "pages/index/detail/detail",
     "pages/index/edit/edit"
-    
     
   ],
   "window": {
@@ -18,29 +17,5 @@
     "navigationStyle": "custom"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json",
-  "tabBar": {
-    "color": "#919AAA",
-    "selectedColor": "#288CFF",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "iconPath": "/images/1.png",
-        "selectedIconPath": "/images/11.png",
-        "text": "菜品管理"
-      },
-      {
-        "pagePath": "pages/classification/classification",
-        "iconPath": "/images/2.png",
-        "selectedIconPath": "/images/22.png",
-        "text": "分类管理"
-      },
-	  {
-	    "pagePath": "pages/statistics/statistics",
-	    "iconPath": "/images/3.png",
-	    "selectedIconPath": "/images/33.png",
-	    "text": "数据统计"
-	  }
-    ]
-  }
+  "sitemapLocation": "sitemap.json"
 }

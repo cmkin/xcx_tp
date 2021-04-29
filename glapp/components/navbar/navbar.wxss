@@ -43,7 +43,12 @@
   text-overflow: ellipsis;
   left: 28%;
 }
-
+.home{
+	display: inline-block;
+	width: 32rpx;
+	height: 30rpx;
+	margin-left: 20rpx;
+}
 .navbar-icon-wrap {
   position: absolute;
   left: 9px;

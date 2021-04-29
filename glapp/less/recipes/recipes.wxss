@@ -1,0 +1,15 @@
+.recipes .time_wrap {
+  background-color: #fff;
+  padding: 20rpx;
+}
+.recipes .time {
+  text-align: center;
+  margin-bottom: 20rpx;
+}
+.recipes .time text {
+  background: #F0F4FC;
+  border-radius: 29rpx;
+  display: inline-block;
+  width: 100%;
+  padding: 8rpx 0;
+}

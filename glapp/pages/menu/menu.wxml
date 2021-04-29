@@ -1,0 +1,10 @@
+<!--pages/menu/menu.wxml-->
+<view class="menu">
+	<navbar navTitle="首页" style="width:200rpx;" noArrow="true"></navbar>
+	<view class="items clearfix">
+		<view bindtap="goPage" data-url="{{item.url}}" class="item" wx:for="{{menu}}">
+			<image src="{{item.img}}"></image>
+			<text>{{item.text}}</text>
+		</view>
+	</view>
+</view>

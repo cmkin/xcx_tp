@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="index">
-  <navbar navTitle="菜品管理" style="width:200rpx;" noArrow="true"></navbar>
+  <navbar navTitle="菜品管理" style="width:200rpx;"></navbar>
   
   <view class="main clearfix" style="height: {{winHeightTab+'px'}};">
 	  <view class="left">

@@ -1,0 +1,24 @@
+<!--pages/recipes/recipes.wxml-->
+<view class="recipes">
+	<navbar navTitle="食谱录入" style="width:200rpx;"></navbar>
+	<view class="main">
+		<view class="time_wrap">
+			<view class="time">
+				<picker style="display: inline-block;width: 47%;" mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+			
+					<text>{{date}}</text>
+				</picker>
+			
+				<picker style="display: inline-block;width: 47%;margin-left: 6%;" mode="selector" value="{{index}}" range="{{array}}"  bindchange="bindPickerChange">
+				
+					<text>{{array[index]}}</text>
+				</picker>
+			</view>
+		</view>
+		
+		
+	</view>
+	
+	
+	
+</view>

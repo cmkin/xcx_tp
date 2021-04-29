@@ -1,6 +1,6 @@
 <!--pages/statistics/statistics.wxml-->
 <view class="statistics">
-	<navbar navTitle="数据统计" style="width:200rpx;" noArrow="true"></navbar>
+	<navbar navTitle="数据统计" style="width:200rpx;"></navbar>
 	<view class="main">
 		<view class="t">请选择统计时间</view>
 		<view class="time">

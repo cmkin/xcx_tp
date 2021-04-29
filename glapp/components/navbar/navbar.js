@@ -71,8 +71,8 @@ Component({
   methods: {
     // 回到首页
     navHome:function(){
-      wx.switchTab({
-        url: '/pages/index/index'
+      wx.reLaunch({
+        url: '/pages/menu/menu'
       })
     },
     // 回到顶部

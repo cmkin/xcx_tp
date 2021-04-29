@@ -8,6 +8,10 @@
 		<link rel="stylesheet" type="text/css" href="css/liMarquee.css"/>
 		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link
+		  rel="stylesheet"
+		  href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"
+		/>
 		<style type="text/css">
 			.loading{
 				position: fixed;
@@ -300,7 +304,7 @@
 				</div>
 				
 				
-				<div v-if="tabActive==1" class="dc_test clearfix">
+				<div v-if="false" class="dc_test clearfix">
 					<div class="top">
 						<!-- <p class="t">请选择您喜欢的菜品</p> -->
 						<div class="c">
@@ -347,7 +351,7 @@
 					
 				</div>
 				
-				<div class="diancan" v-if="false">
+				<div class="diancan" v-if="tabActive==1">
 					<div class="white">
 					<div class="times">
 						<span>
@@ -388,9 +392,10 @@
 								<b>{{item}}</b>
 								<div class="swiper-container">
 								    <div class="swiper-wrapper">
-								        <div class="swiper-slide active" v-for="item in 5">
+								        <div class="swiper-slide" :class="item==1?'active':''" v-for="item in 5">
 											<img class="ba" src="images/banner.png" >
-											<img src="images/bzbf.png" >
+											<img class="xz"  src="images/bzbf.png" >
+											<span class="tj">今日推荐</span>
 											<div class="pd">
 												<b class="omg">红烧肉</b>
 												<ul class="tags clearfix">
@@ -408,12 +413,68 @@
 					
 				</div>
 				
+				<div class="pingjia" v-if="tabActive==2">
+					<ul>
+						<li v-for="item in 10">
+							<div class="tt clearfix">
+								<b>风味口水鸡</b>
+								<div class="pj">
+									<span>{{rateTitle[rateValue-1]}}</span>
+									<van-rate
+									  color="#FF6634"
+									  disabled-color="#E5E5E5"
+									  readonly
+									  v-model="rateValue"
+									  :size="18"
+									  void-icon="star"
+									  void-color="#E5E5E5"
+									/>
+								</div>
+							</div>
+							<div class="tags clearfix">
+								<span>标签</span>
+								<span>标签标签</span>
+								<span>标签</span>
+							</div>
+							<div class="cc">
+								这是评价的内容，这是评价的内容这是评价的内容这是评价的内容，这是评价的内容这是评价的内容，这是评价的内容这是评价的内容。
+							</div>
+							<p class="time">2021-04-06 07:21:10</p>
+						</li>
+					</ul>
+				</div>
 				
+				<div class="chushi" v-if="tabActive==3">
+					<ul>
+						<li class="clearfix" v-for="item in 10">
+							<div class="t clearfix">
+								<img src="images/banner.png" >
+								<div class="r">
+									<b>林述巍</b>
+									<p>男，主厨，擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜。现任洲际酒店集团大中华区行家主厨大使，成都美食之都促进会副秘书长。曾担任G20峰会、联合国世界旅游组织大会和财富全球论坛等大型峰会及</p>
+								</div>
+							</div>
+							<div class="btn">
+								<span>查看详情</span>
+							</div>
+						</li>
+					</ul>
+				</div>
 				
 			
 			</div>
 			
 			
+			<div class="cushi_alert" v-if="false">
+				<div class="c_main">
+					<div class="t">
+						<b>厨师：林述巍</b>
+						<img src="images/close_h.png" >
+					</div>
+					<img src="images/banner.png" >
+					<p>男，主厨，擅长川菜、粤菜。现任洲际酒店集团大中华区行家主厨大使，成都美食之都促进会副秘书长。曾担任G20峰会、联合国世界旅游组织大会和财富全球论坛等大型峰会及论坛的国宴主厨，被评为海鸥中国酒店名厨版Best50中餐名厨，美食美酒中国Best50明星厨师，联合利华评选中国新生代行政总厨Top50。湖南卫视青春合伙人经营体验节目《中餐厅第三季》主厨。2020年参加湖南卫视《鲜厨100》，担任鲜厨推荐官。同年，在湖南卫视《中餐厅第四季》中，担任主厨之一。2020年9月，林述巍的首部自传式美食作品《林大厨的24味》出版。</p>
+				</div>
+			</div>
 			
 			<div class="dianping_alert" v-if="dianping_alert">
 				<div class="d_main">
@@ -426,29 +487,21 @@
 							<img :src="dianpingInfos.dishes_thumb" >
 						</div>
 						
-						<div id="star" style="text-align: center;width: 100%;margin: 0;height: auto;">
-						
-							<span></span>
-						
-							<ul style="float: none;display: inline-block;" class="clearfix">
-						
-								<li><a href="javascript:;">1</a></li>
-						
-								<li><a href="javascript:;">2</a></li>
-						
-								<li><a href="javascript:;">3</a></li>
-						
-								<li><a href="javascript:;">4</a></li>
-						
-								<li><a href="javascript:;">5</a></li>
-						
-							</ul>
-						
-							<span style="display: block;float: none;width: 100%;"></span>
-						
-							<p></p>
-						
+						<div class="stars" style="text-align: center;">
+							<div>
+								<van-rate
+								  color="#FF6634"
+								  disabled-color="#E5E5E5"
+								  v-model="rateValue"
+								  :size="25"
+								  void-icon="star"
+								  void-color="#E5E5E5"
+								/>
+							</div>
+							<span style="display: block;padding: 10px 0;">{{rateTitle[rateValue-1]}}</span>
 						</div>
+						
+						
 						
 						<div class="tags">
 							<span>评价标签</span>
@@ -492,6 +545,7 @@
 	<script src="js/ie.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/axios.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
 	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/fingerprint.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
@@ -508,18 +562,5 @@
 		  })
 	</script>
 	
-	<script type="text/javascript">
-	
-	window.onload = function (){
-	
-	
-	
-		
-	
-		
-	
-	};
-	
-	</script>
 	
 </html>

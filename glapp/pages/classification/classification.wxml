@@ -1,6 +1,6 @@
 <!--pages/classification/classification.wxml-->
 <view class="classification">
-	<navbar navTitle="分类管理" style="width:200rpx;" noArrow="true"></navbar>
+	<navbar navTitle="分类管理" style="width:200rpx;" ></navbar>
 	<view class="main">
 		<view class="search" style="top: {{navHeight+'px'}};">
 			<view class="c">
