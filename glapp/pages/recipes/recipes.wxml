@@ -14,6 +14,9 @@
 					<text>{{array[index]}}</text>
 				</picker>
 			</view>
+			<view class="textaere">
+				<textarea placeholder="请输入今日主题" />
+			</view>
 		</view>
 		
 		

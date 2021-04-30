@@ -13,3 +13,9 @@
   width: 100%;
   padding: 8rpx 0;
 }
+.recipes .textaere {
+  background-color: #F7F8FC;
+  padding: 20rpx;
+  border-radius: 5px;
+  height: 10vh;
+}
