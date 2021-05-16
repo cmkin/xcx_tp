@@ -5,23 +5,21 @@
 		<title>请选择您喜欢的菜品</title>
 		<meta name="viewport"
 			content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="css/liMarquee.css"/>
-		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/liMarquee.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/index.css" />
-		<link
-		  rel="stylesheet"
-		  href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css"
-		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vant@2.12/lib/index.css" />
 		<style type="text/css">
-			.loading{
+			.loading {
 				position: fixed;
 				top: 0;
 				left: 0;
 				width: 100%;
 				height: 100%;
 				z-index: 1000;
-				background-color: rgba(0,0,0,0.0);
+				background-color: rgba(0, 0, 0, 0.0);
 			}
+
 			#preloader_3 {
 				position: absolute;
 				top: 50%;
@@ -185,362 +183,617 @@
 					transform: translateX(0px)
 				}
 			}
-			[v-cloak]{
+
+			[v-cloak] {
 				display: none;
 			}
-			
-			.aixings{
+
+			.aixings {
 				position: absolute;
 				top: 0%;
 				left: 0;
 				width: 100%;
 				height: 100%;
 			}
-			.aixings img{
+
+			.aixings img {
 				width: 30px;
 				display: inline-block;
 				position: absolute;
 				bottom: -50px;
 				left: 0;
 			}
-			.dh1{
+
+			.dh1 {
 				animation: dhs 1s 1 linear;
 			}
-			@keyframes dhs{
-				from{
+
+			@keyframes dhs {
+				from {
 					bottom: 0;
 					opacity: 1;
 				}
-				to{
+
+				to {
 					bottom: 120%;
 					opacity: 0.5;
 				}
 			}
-			
 		</style>
 		<style type="text/css">
-		
-		/* star */
-		
-		#star{position:relative;width:600px;margin:20px auto;height:24px;}
-		
-		#star ul,#star span{float:left;display:inline;height:19px;line-height:19px;}
-		
-		#star ul{margin:0 10px;}
-		
-		#star li{float:left;width:24px;cursor:pointer;text-indent:-9999px;background:url(images/star.png) no-repeat;}
-		
-		#star strong{color:#f60;padding-left:10px;}
-		
-		#star li.on{background-position:0 -28px;}
-		
-		#star p{position:absolute;top:20px;width:159px;height:60px;display:none;background:url(images/icon.gif) no-repeat;padding:7px 10px 0;}
-		
-		#star p em{color:#f60;display:block;font-style:normal;}
-		
+			/* star */
+
+			#star {
+				position: relative;
+				width: 600px;
+				margin: 20px auto;
+				height: 24px;
+			}
+
+			#star ul,
+			#star span {
+				float: left;
+				display: inline;
+				height: 19px;
+				line-height: 19px;
+			}
+
+			#star ul {
+				margin: 0 10px;
+			}
+
+			#star li {
+				float: left;
+				width: 24px;
+				cursor: pointer;
+				text-indent: -9999px;
+				background: url(images/star.png) no-repeat;
+			}
+
+			#star strong {
+				color: #f60;
+				padding-left: 10px;
+			}
+
+			#star li.on {
+				background-position: 0 -28px;
+			}
+
+			#star p {
+				position: absolute;
+				top: 20px;
+				width: 159px;
+				height: 60px;
+				display: none;
+				background: url(images/icon.gif) no-repeat;
+				padding: 7px 10px 0;
+			}
+
+			#star p em {
+				color: #f60;
+				display: block;
+				font-style: normal;
+			}
+
+
+			.xactive {
+				background-color: #288CFF !important;
+				color: #fff !important;
+			}
+			.index .main_wrap .diancan .jts .van-button__content span{
+				color: #fff !important;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="index" id="app" v-cloak>
 			<div class="banner">
-				<img src="images/banner.png" >
+				<img :src="canteen.main_pic">
 			</div>
-			
+
 			<div class="main_wrap">
 				<div class="white" style="margin-bottom: 1px;border-radius: 20px 20px 0 0;">
-					
-				
-				<div class="logo">
-					<b>两棵树餐桌</b>
-					<span>
-						<img src="images/x_c.png" >
-						4.9分
-					</span>
-					<div class="r">
-						<img src="images/logo.png" >
+
+
+					<div class="logo">
+						<b>{{canteen.name}}</b>
+						<span>
+							<img src="images/x_c.png">
+							{{ canteen.score }}分
+						</span>
+						<div class="r">
+							<img :src="canteen.logo">
+						</div>
+					</div>
+					<p class="js">{{canteen.summary}}</p>
+					<div class="jq22">
+						<p>{{canteen.bulletin}}</p>
+					</div>
+					<ul class="clearfix tabs">
+
+						<li @click="changeTab(index)" :class="tabActive==index?'active':''"
+							v-for="item,index in ['周食谱点评','我要点餐','食堂评价','厨师资料']"> <span>{{item}}<i></i></span> </li>
+
+					</ul>
+				</div>
+
+				<div v-if="tabActive==0" class="dianping clearfix">
+
+					<div class="top" v-if="false">
+						<!-- <p class="t">请选择您喜欢的菜品</p> -->
+						<div class="c">
+							<p class="a">我已选择的菜品({{getCactiveCai.length}})</p>
+
+							<ul class="clearfix" style="">
+
+								<li v-for="item in getCactiveCai">{{item.dishes_name}} <img @click="delChange2(item)"
+										src="images/close.png"> </li>
+
+								<span style="height: 30px;opacity: 0;display: inline-block;">sdasd</span>
+							</ul>
+
+							<span
+								style="background-color: #F2F2F2;margin-top: 10px;; padding: 5px 20px;font-size: 14px;text-align: center;display: inline-block;border-radius: 20px;"
+								:class="xcIndex == 0 ? 'xactive' : ''" @click="xcIndex = 0">明日想吃</span>
+							<span
+								style="background-color: #F2F2F2;margin-top: 10px;; padding: 5px 20px;font-size: 14px;text-align: center;display: inline-block;border-radius: 20px;"
+								:class="xcIndex == 1 ? 'xactive' : ''" @click="xcIndex = 1">下周想吃</span>
+							<span
+								style="background-color: #F2F2F2;margin-top: 10px;; padding: 5px 20px;font-size: 14px;text-align: center;display: inline-block;border-radius: 20px;"
+								:class="xcIndex == 2 ? 'xactive' : ''" @click="xcIndex = 2">场外想吃</span>
+
+						</div>
+					</div>
+
+					<div class="boo_wrap">
+						<div class="clearfix boo">
+
+							<div class="left">
+								<ul>
+									<li @click="changeFlZsp(item.id)" style="margin-bottom: 10px;" class=""
+										:class="zspActive===item.id?'active':''" v-for="item in zspList">
+										<span class="omg">{{item.title}}</span>
+									</li>
+								</ul>
+							</div>
+							<div class="right">
+								<div v-if="zspListCai.length" v-for="item,index in ['早餐','午餐','晚餐']">
+									<b class="fgs">{{item}}</b>
+									<ul class="clearfix" v-if="zspListCai[index].dishes.length">
+										<!-- @click="changeCai(item)" getACtiveClass(item) :class="getACtiveClass(item)" -->
+										<li style="overflow: hidden;" 
+											v-for="item in zspListCai[index].dishes">
+											<img class="img" :src="item.dishes_thumb">
+											<image src="./images/bzbf.png" class="yb"></image>
+											<div class="r">
+												<b>{{item.dishes_name}}</b>
+												<div class="tags clearfix">
+													<span v-for="tt in item.tag">{{tt.value}}</span>
+												</div>
+												<div class="dx" @click.stop="showDianping(item)">
+													<img src="images/x_l.png">
+													点评菜品
+												</div>
+
+												<div class="aixings" v-if="false">
+													<img style="left: 10%;animation-duration: 3s;" class="dh1"
+														src="img/1.png">
+													<img style="left: 20%;animation-duration: 2s;" class="dh1"
+														src="img/2.png">
+													<img style="left: 40%;animation-duration: 1s;" class="dh1"
+														src="img/3.png">
+													<img style="left: 60%;animation-duration: 1.5s;" class="dh1"
+														src="img/4.png">
+													<img style="left: 80%;animation-duration: 2.5s;" class="dh1"
+														src="img/5.png">
+												</div>
+
+											</div>
+
+
+										</li>
+
+
+									</ul>
+									<ul v-else style="padding-top: 10px;">
+										暂无数据
+									</ul>
+
+								</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
-				<p class="js">这是简要的内容介绍，这是简要的内容介绍，这是简要的内容介绍这是简要的内容。</p>
-				<div class="jq22">
-					<p>公告：这是公告的内容，走马灯式内容轮播式文字出现播放</p>
-				</div>
-				<ul class="clearfix tabs">
-					
-					<li @click="changeTab(index)" :class="tabActive==index?'active':''" v-for="item,index in ['点评','点餐','评价','厨师资料']"> <span>{{item}}<i></i></span> </li>
-					
-				</ul>
-				</div>
-				
-				<div v-if="tabActive==0" class="dianping clearfix">
-					<div class="left">
+
+
+				<div class="diancan" style="height: calc(100% - 150px);background-color: #fff;" v-if="tabActive==1">
+
+					<div class="pages" v-if="!dcActive">
 						<ul>
-							<li @click="changeFl(item.id)" style="margin-bottom: 10px;" class=""
-								:class="flActive===item.id?'active':''" v-for="item in fllist">
-								<span class="omg">{{item.category_name}}</span>
+							<li @click="changePages(index)" v-for="item,index in dcList">
+								<img :src="item.img">
+								<span>{{item.title}}</span>
 							</li>
 						</ul>
 					</div>
-					<div class="right">
-						<ul class="clearfix">
-							<li  style="overflow: hidden;" :class="getACtiveClass(item)" v-for="item in cailist">
-								<img class="img" :src="item.dishes_thumb">
-								<div class="r">
-									<b>{{item.dishes_name}}</b>
-									<div class="tags clearfix">
-										<span>标签</span>
-										<span>标签</span>
-										<span>标签</span>
+
+					<div v-else style="height: calc(100% - 100px);">
+						
+						<div class="jts">
+							<van-button type="info" @click="dcActive = !dcActive" style="float: left;color: #fff;height: 26px;">返回</van-button>
+							<svg t="1621068699578" @click="last" class="icon" viewBox="0 0 1024 1024" version="1.1"
+								xmlns="http://www.w3.org/2000/svg" p-id="1867" width="48" height="48">
+								<path
+									d="M615.958 216.958c13.278-13.277 34.806-13.277 48.084 0 13.145 13.145 13.276 34.376 0.394 47.683l-0.394 0.4L416.083 513l247.959 247.958c13.145 13.145 13.276 34.376 0.394 47.683l-0.394 0.4c-13.145 13.146-34.376 13.277-47.683 0.395l-0.4-0.394-272-272c-13.146-13.145-13.277-34.376-0.395-47.683l0.394-0.4 272-272z"
+									p-id="1868"></path>
+							</svg>
+							<span>{{ ['菜肴库点餐','周食谱点餐','历史食谱'][biaotiActive] }}</span>
+							<svg t="1621068699578" @click="next" class="icon" viewBox="0 0 1024 1024" version="1.1"
+								xmlns="http://www.w3.org/2000/svg" p-id="1867" width="48" height="48">
+								<path
+									d="M615.958 216.958c13.278-13.277 34.806-13.277 48.084 0 13.145 13.145 13.276 34.376 0.394 47.683l-0.394 0.4L416.083 513l247.959 247.958c13.145 13.145 13.276 34.376 0.394 47.683l-0.394 0.4c-13.145 13.146-34.376 13.277-47.683 0.395l-0.4-0.394-272-272c-13.146-13.145-13.277-34.376-0.395-47.683l0.394-0.4 272-272z"
+									p-id="1868"></path>
+							</svg>
+						</div>
+
+						<div class="olists dianping"   v-if="biaotiActive==0" style="height: 97%;">
+							<div class="boo_wrap">
+
+								<div class="left">
+									<ul>
+										<li @click="cykActive = item.dishes_category" style="margin-bottom: 10px;" class=""
+											:class="cykActive===item.dishes_category?'active':''" v-for="item in cykList">
+											<span class="omg">{{item.category_name}}</span>
+										</li>
+									</ul>
+								</div>
+								<div class="right">
+									<ul class="clearfix" v-if="getCaiyaoActive">
+										<!-- @click="changeCai(item)" -->
+										<li @click="changeCaiActiveItem(item)" style="overflow: hidden;"
+											:class="getACtiveClass(item)" v-for="item in getCaiyaoActive.dishes">
+											<img class="img" :src="item.dishes_thumb">
+											<image src="./images/bzbf.png" class="yb"></image>
+											<div class="r">
+												<b>{{item.dishes_name}}</b>
+												<div class="tags clearfix">
+													<span v-for="tt in item.tag">{{tt.value}}</span>
+												</div>
+
+
+												<div class="aixings" v-if="getACtiveClass(item)">
+													<img style="left: 10%;animation-duration: 3s;" class="dh1"
+														src="img/1.png">
+													<img style="left: 20%;animation-duration: 2s;" class="dh1"
+														src="img/2.png">
+													<img style="left: 40%;animation-duration: 1s;" class="dh1"
+														src="img/3.png">
+													<img style="left: 60%;animation-duration: 1.5s;" class="dh1"
+														src="img/4.png">
+													<img style="left: 80%;animation-duration: 2.5s;" class="dh1"
+														src="img/5.png">
+												</div>
+
+											</div>
+
+
+										</li>
+
+									</ul>
+								</div>
+
+
+							</div>
+						</div>
+
+
+						<div class="olists dianping" v-if="biaotiActive==1" style="height: 97%;">
+							<div class="boo_wrap">
+
+								<div class="left">
+									<ul>
+										<li @click="changeFlZsp(item.id)" style="margin-bottom: 10px;" class=""
+											:class="zspActive===item.id?'active':''" v-for="item in zspList">
+											<span class="omg">{{item.title}}</span>
+										</li>
+									</ul>
+								</div>
+
+								<div class="right">
+									<div v-if="zspListCai.length" v-for="item,index in ['早餐','午餐','晚餐']">
+										<b class="fgs">{{item}}</b>
+										<ul class="clearfix" v-if="zspListCai[index].dishes.length">
+											<!-- @click="changeCai(item)" -->
+											<li @click="changeCaiActiveItem(item)" style="overflow: hidden;" :class="getACtiveClass(item)"
+												v-for="item in zspListCai[index].dishes">
+												<img class="img" :src="item.dishes_thumb">
+												<image src="./images/bzbf.png" class="yb"></image>
+												<div class="r">
+													<b>{{item.dishes_name}}</b>
+													<div class="tags clearfix">
+														<span v-for="tt in item.tag">{{tt.value}}</span>
+													</div>
+													<!-- <div class="dx" @click.stop="showDianping(item)">
+														<img src="images/x_l.png">
+														点评菜品
+													</div> -->
+
+													<div class="aixings" v-if="getACtiveClass(item)">
+														<img style="left: 10%;animation-duration: 3s;" class="dh1"
+															src="img/1.png">
+														<img style="left: 20%;animation-duration: 2s;" class="dh1"
+															src="img/2.png">
+														<img style="left: 40%;animation-duration: 1s;" class="dh1"
+															src="img/3.png">
+														<img style="left: 60%;animation-duration: 1.5s;" class="dh1"
+															src="img/4.png">
+														<img style="left: 80%;animation-duration: 2.5s;" class="dh1"
+															src="img/5.png">
+													</div>
+
+												</div>
+
+
+											</li>
+
+
+										</ul>
+										<ul v-else style="padding-top: 10px;">
+											暂无数据
+										</ul>
+
 									</div>
-									<div class="dx" @click="showDianping(item)">
-										<img src="images/x_l.png" >
-										点评菜品
-									</div>
+
+								</div>
+
+
+							</div>
+						</div>
+						
+						<div class="lishi diancan dianping" v-if="biaotiActive==2" style="height: 97%;">
+							<div class="times">
+								<span style="margin: 0;" @click="datetimeShow = true">
+									{{currentDate | dateFormat}}
+								</span>
+							</div>
+							
+							<div class="boo_wrap" style="height: calc(100% - 70px);">
+								<div class="right" style="float: none;width: 100%;box-sizing: border-box;">
+									<ul class="clearfix" v-if="lishiList">
+										<!-- @click="changeCai(item)" -->
+										<li @click="changeCaiActiveItem(item)" style="overflow: hidden;"
+											:class="getACtiveClass(item)" v-for="item in lishiList">
+											<img class="img" :src="item.dishes_thumb">
+											<image src="./images/bzbf.png" class="yb"></image>
+											<div class="r">
+												<b>{{item.dishes_name}}</b>
+												<div class="tags clearfix">
+													<span v-for="tt in item.tag">{{tt.value}}</span>
+												</div>
+								
+								
+												<div class="aixings" v-if="getACtiveClass(item)">
+													<img style="left: 10%;animation-duration: 3s;" class="dh1"
+														src="img/1.png">
+													<img style="left: 20%;animation-duration: 2s;" class="dh1"
+														src="img/2.png">
+													<img style="left: 40%;animation-duration: 1s;" class="dh1"
+														src="img/3.png">
+													<img style="left: 60%;animation-duration: 1.5s;" class="dh1"
+														src="img/4.png">
+													<img style="left: 80%;animation-duration: 2.5s;" class="dh1"
+														src="img/5.png">
+												</div>
+								
+											</div>
+								
+								
+										</li>
+								
+									</ul>
 								</div>
 								
-								
-							</li>				
-						</ul>
-					</div>
-				</div>
-				
-				
-				<div v-if="false" class="dc_test clearfix">
-					<div class="top">
-						<!-- <p class="t">请选择您喜欢的菜品</p> -->
-						<div class="c">
-							<p class="a">我已选择的菜品(0)</p>
-								
-							<ul class="clearfix" style="">
-					
-								<li v-for="item in getCactiveCai">{{item.dishes_name}} <img @click="delChange(item)"
-										src="images/close.png"> </li>
-					
-								<span style="height: 30px;opacity: 0;display: inline-block;">sdasd</span>
-							</ul>
+							</div>
+							
 						</div>
-					
-					</div>
-					
-					<div class="main clearfix">
-						<div class="left">
-							<ul>
-								<li @click="changeFl(item.id)" style="margin-bottom: 10px;" class=""
-									:class="flActive===item.id?'active':''" v-for="item in fllist">
-									<span class="omg">{{item.category_name}}</span>
+						
+
+						<div class="lists" v-if="false">
+							<ul class="lis" v-if="readList.length">
+								<li v-for="item,index in ['主菜','小菜','主食','水果沙拉']">
+									<b>{{item}}</b>
+									<div class="swiper-container">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide" :class="tt.active?'active':''"
+												@click="tt.active = !tt.active" v-for="tt in readList[index].dishes">
+												<img class="ba" :src="tt.dishes_thumb">
+												<img class="xz" src="images/bzbf.png">
+												<span class="tj" v-if="tt.is_recommend">今日推荐</span>
+												<div class="pd">
+													<b class="omg">{{tt.dishes_name}}</b>
+													<div class="dx" @click.stop="showDianping(tt)">
+														<img src="images/x_l.png">
+														点评菜品
+													</div>
+													<ul class="tags clearfix" style="min-height: 30px;">
+														<li v-for="ts in tt.tag">{{ts}}</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
 								</li>
 							</ul>
 						</div>
-						<div class="right">
-							<ul class="clearfix">
-								<li @click="changeCai(item)" style="overflow: hidden;" :class="getACtiveClass(item)" v-for="item in cailist">
-									<img class="img" :src="item.dishes_thumb">
-									<span>{{item.dishes_name}}</span>
-									<image src="./images/bzbf.png" class="yb"></image>
-									<div class="aixings" v-if="getACtiveClass(item)">
-										<img style="left: 10%;animation-duration: 3s;" class="dh1" src="img/1.png" >
-										<img style="left: 20%;animation-duration: 2s;" class="dh1" src="img/2.png" >
-										<img style="left: 40%;animation-duration: 1s;" class="dh1" src="img/3.png" >
-										<img style="left: 60%;animation-duration: 1.5s;" class="dh1" src="img/4.png" >
-										<img style="left: 80%;animation-duration: 2.5s;" class="dh1" src="img/5.png" >
-									</div>
-								</li>				
-							</ul>
-						</div>
+
 					</div>
-					
-					
+
+
+
 				</div>
-				
-				<div class="diancan" v-if="tabActive==1">
-					<div class="white">
-					<div class="times">
-						<span>
-							2021-04-20
-							<img src="images/j_x.png" >
-						</span>
-						<span>
-							早餐
-							<img src="images/j_x.png" >
-							<!-- <ul>
-								<li>早餐</li>
-								<li>午餐</li>
-								<li>晚餐</li>
-							</ul> -->
-						</span>
-					</div>
-					<div class="zt">这是今日的主题内容，这是今日的主题内容</div>
-					
-					<div class="top">
-						<!-- <p class="t">请选择您喜欢的菜品</p> -->
-						<div class="c">
-							<p class="a">我已选择的菜品(0)</p>
-								
-							<ul class="clearfix" style="">
-					
-								<li v-for="item in getCactiveCai">{{item.dishes_name}} <img @click="delChange(item)"
-										src="images/close.png"> </li>
-					
-								<span style="height: 30px;opacity: 0;display: inline-block;">sdasd</span>
-							</ul>
-						</div>
-					</div>
-					</div>
-					
-					<div class="lists">
-						<ul class="lis">
-							<li v-for="item in ['主菜','小菜','主食','水果沙拉']">
-								<b>{{item}}</b>
-								<div class="swiper-container">
-								    <div class="swiper-wrapper">
-								        <div class="swiper-slide" :class="item==1?'active':''" v-for="item in 5">
-											<img class="ba" src="images/banner.png" >
-											<img class="xz"  src="images/bzbf.png" >
-											<span class="tj">今日推荐</span>
-											<div class="pd">
-												<b class="omg">红烧肉</b>
-												<ul class="tags clearfix">
-													<li>标签</li>
-													<li>标签标签</li>
-													<li>标签标签</li>
-												</ul>
-											</div>
-										</div>
-								    </div>
-								</div>
-							</li>
-						</ul>
-					</div>
-					
-				</div>
-				
+
 				<div class="pingjia" v-if="tabActive==2">
 					<ul>
-						<li v-for="item in 10">
+						<li v-for="item in pjList">
 							<div class="tt clearfix">
-								<b>风味口水鸡</b>
+								<b>{{item.dishes_name}}</b>
 								<div class="pj">
-									<span>{{rateTitle[rateValue-1]}}</span>
-									<van-rate
-									  color="#FF6634"
-									  disabled-color="#E5E5E5"
-									  readonly
-									  v-model="rateValue"
-									  :size="18"
-									  void-icon="star"
-									  void-color="#E5E5E5"
-									/>
+									<span>{{rateTitle[item.star-1]}}</span>
+									<van-rate color="#FF6634" disabled-color="#E5E5E5" readonly v-model="item.star"
+										:size="18" void-icon="star" void-color="#E5E5E5" />
 								</div>
 							</div>
 							<div class="tags clearfix">
-								<span>标签</span>
-								<span>标签标签</span>
-								<span>标签</span>
+								<span v-for="tt in item.tag">{{tt}}</span>
 							</div>
 							<div class="cc">
-								这是评价的内容，这是评价的内容这是评价的内容这是评价的内容，这是评价的内容这是评价的内容，这是评价的内容这是评价的内容。
+								{{item.content}}
 							</div>
-							<p class="time">2021-04-06 07:21:10</p>
+							<p class="time">{{item.created_at}}</p>
 						</li>
 					</ul>
 				</div>
-				
+
 				<div class="chushi" v-if="tabActive==3">
 					<ul>
-						<li class="clearfix" v-for="item in 10">
+						<li class="clearfix" v-for="item in cook">
 							<div class="t clearfix">
-								<img src="images/banner.png" >
+								<img :src="item.imgurl">
 								<div class="r">
-									<b>林述巍</b>
-									<p>男，主厨，擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜擅长川菜、粤菜。现任洲际酒店集团大中华区行家主厨大使，成都美食之都促进会副秘书长。曾担任G20峰会、联合国世界旅游组织大会和财富全球论坛等大型峰会及</p>
+									<b>{{item.cook_name || '暂无'}}</b>
+									<p>{{item.info}}</p>
 								</div>
 							</div>
 							<div class="btn">
-								<span>查看详情</span>
+								<span @click="chushiChange(item)">查看详情</span>
 							</div>
 						</li>
 					</ul>
 				</div>
-				
-			
+
+
 			</div>
-			
-			
-			<div class="cushi_alert" v-if="false">
+
+
+			<div class="cushi_alert" v-if="cushiAlert">
 				<div class="c_main">
 					<div class="t">
-						<b>厨师：林述巍</b>
-						<img src="images/close_h.png" >
+						<b>厨师：{{cushiItem.cook_name || '暂无'}}</b>
+						<img @click="cushiAlert = false" src="images/close_h.png">
 					</div>
-					<img src="images/banner.png" >
-					<p>男，主厨，擅长川菜、粤菜。现任洲际酒店集团大中华区行家主厨大使，成都美食之都促进会副秘书长。曾担任G20峰会、联合国世界旅游组织大会和财富全球论坛等大型峰会及论坛的国宴主厨，被评为海鸥中国酒店名厨版Best50中餐名厨，美食美酒中国Best50明星厨师，联合利华评选中国新生代行政总厨Top50。湖南卫视青春合伙人经营体验节目《中餐厅第三季》主厨。2020年参加湖南卫视《鲜厨100》，担任鲜厨推荐官。同年，在湖南卫视《中餐厅第四季》中，担任主厨之一。2020年9月，林述巍的首部自传式美食作品《林大厨的24味》出版。</p>
+					<img :src="cushiItem.imgurl">
+					<p>{{cushiItem.info}}</p>
 				</div>
 			</div>
-			
+
 			<div class="dianping_alert" v-if="dianping_alert">
 				<div class="d_main">
 					<div class="cc">
 						<div class="title clearfix">
 							请您点评菜品：{{dianpingInfos.dishes_name}}
-							<img @click="dianping_alert = false" src="images/close_h.png" >
+							<img @click="dianping_alert = false" src="images/close_h.png">
 						</div>
 						<div class="tp">
-							<img :src="dianpingInfos.dishes_thumb" >
+							<img :src="dianpingInfos.dishes_thumb">
 						</div>
-						
+
 						<div class="stars" style="text-align: center;">
 							<div>
-								<van-rate
-								  color="#FF6634"
-								  disabled-color="#E5E5E5"
-								  v-model="rateValue"
-								  :size="25"
-								  void-icon="star"
-								  void-color="#E5E5E5"
-								/>
+								<van-rate color="#FF6634" disabled-color="#E5E5E5" v-model="rateValue" :size="25"
+									void-icon="star" void-color="#E5E5E5" />
 							</div>
 							<span style="display: block;padding: 10px 0;">{{rateTitle[rateValue-1]}}</span>
 						</div>
-						
-						
-						
+
+
+
 						<div class="tags">
-							<span>评价标签</span>
-							<span>评价标签</span>
-							<span>评价标签</span>
-							<span>评价标签</span>
+							<span :class="item.active?'active':''" @click="item.active = !item.active"
+								v-for="item in dianpingInfos.tag">{{item.value}}</span>
 						</div>
-						
+
 						<div class="textarea">
-							<textarea rows="" cols="">
-								
+							<textarea v-model="pltextarea" rows="" cols="">
+
 							</textarea>
 						</div>
-						
+
 					</div>
-					
+
 					<div class="btns">
 						<span @click="dianping_alert = false">取消</span>
 						<span @click="fbpj">发表评价</span>
 					</div>
-					
+
 				</div>
 			</div>
-			
 
-			<div class="submit"  v-if="tabActive==1" @click="submit()">提交</div>
+			<div class="submit_dc" v-if="tabActive==1 && dcActive">
+				<div class="tjs" style="background-color: rgba(40, 140, 255, 1);">
+					<img src="img/cs.png">
+					<div class="has" v-if="getCaiShows.length">
+						<span @click="sc_showmo = true">
+							已点菜品({{getCaiShows.length}})
+							<svg t="1621068699578" class="icon" viewBox="0 0 1024 1024" version="1.1"
+								xmlns="http://www.w3.org/2000/svg" p-id="1867" width="48" height="48">
+								<path
+									d="M615.958 216.958c13.278-13.277 34.806-13.277 48.084 0 13.145 13.145 13.276 34.376 0.394 47.683l-0.394 0.4L416.083 513l247.959 247.958c13.145 13.145 13.276 34.376 0.394 47.683l-0.394 0.4c-13.145 13.146-34.376 13.277-47.683 0.395l-0.4-0.394-272-272c-13.146-13.145-13.277-34.376-0.395-47.683l0.394-0.4 272-272z"
+									p-id="1868"></path>
+							</svg>
+						</span>
+						<span @click="submit">提交</span>
+					</div>
+					<div class="none" v-else>请客官开始点餐</div>
+				</div>
+				<div class="mores" v-if="sc_showmo">
+					<div class="mains">
+						<div class="title">
+							<b>已点菜品({{getCaiShows.length}})</b>
+							<img @click="sc_showmo = false" src="images/close_h.png">
+						</div>
+						<div class="tgas clearfix">
+							<span class="omg" @click="delshowMore(item)" v-for="item in getCaiShows">
+								<i class="omg">{{item.dishes_name}}</i>
+								<img src="images/close.png">
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="submit" v-if="false" @click="submit()">提交</div>
+			<!-- <div class="submit"  v-if="tabActive==0" @click="submit2()">提交</div> -->
 			<div class="loading" v-if="loading">
 				<div id="preloader_3"></div>
 			</div>
-			
+
 			<div class="ts" v-if="tx">
 				<p> {{text=="投票成功"?'√':'' }} </p>
 				<span>{{text}}</span>
 			</div>
 
+			<van-popup position="bottom" v-model="datetimeShow">
+				<van-datetime-picker v-model="currentDate" type="date" @cancel="datetimeShow = false" @confirm="timeOk "
+					title="选择年月日" :min-date="minDate" :max-date="maxDate" />
+			</van-popup>
+
+			<van-popup position="bottom" v-model="csShow">
+				<van-picker title="请选择" show-toolbar value-key="title" :columns="columns" @confirm="csOk"
+					@cancel="csShow = false" />
+			</van-popup>
+
+			<van-popup position="bottom" v-model="xcShow">
+				<van-picker title="请选择" show-toolbar :columns="xcList" @confirm="xcOk" @cancel="xcShow = false" />
+			</van-popup>
+
 		</div>
 	</body>
 	<script src="js/jq.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/jquery.liMarquee.js" type="text/javascript" charset="utf-8"></script>
+	<script crossorigin="anonymous"
+		integrity="sha512-DkxSbrm2xe6jcerSwLA4vS8WV7UarP44UjrS+Yp2MRFE2md2qPLpZVTyoxHrM2mvZ2Ft2zhPUMplV20zNFXriQ=="
+		src="https://lib.baomitu.com/qs/6.10.1/qs.js"></script>
 	<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/ie.js" type="text/javascript" charset="utf-8"></script>
 	<script src="js/axios.js" type="text/javascript" charset="utf-8"></script>
@@ -550,17 +803,7 @@
 	<script src="js/fingerprint.js" type="text/javascript" charset="utf-8"></script>
 	<script type="text/javascript">
 		appMain.init()
-		//跑马灯初始化
-		$(function(){
-			$('.jq22').liMarquee();
-		});
-		//点餐滑动
-		var mySwiper = new Swiper ('.swiper-container', {
-		    //direction: 'vertical', // 垂直切换选项
-		    //loop: true, // 循环模式选项
-			slidesPerView :'auto'
-		  })
 	</script>
-	
-	
+
+
 </html>

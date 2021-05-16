@@ -1,0 +1,146 @@
+.addRec{
+	.title{
+		text-align: center;
+		padding: 30rpx;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 100;
+		box-shadow: 0px 12px 12px 0px rgba(0, 0, 0, 0.04);
+		background-color: #fff;
+		box-sizing: border-box;
+		.l{
+			float: left;
+		}
+		text{
+			font-weight: 36rpx;
+			color: #333;
+			font-weight: bold;
+		}
+		.r{
+			position: absolute;
+			right: 30rpx;
+			top: 30rpx;
+		}
+		image{
+			width: 35rpx;
+			height: 35rpx;
+		}
+	}
+	
+	.tags{
+		padding: 20rpx;
+		background-color: #ffffff;
+		box-sizing: border-box;
+		padding: 120rpx 0;
+		&>text,view{
+			background-color: #F2F2F2;
+			color: #666666;
+			font-size: 24rpx;
+			margin-bottom: 10px;
+			padding: 7px;
+			float: left;
+			width: 31%;
+			border: 1px solid transparent;
+			border-radius: 20px;
+			text-align: center;
+			box-sizing: border-box;
+		}
+		&>text:nth-child(3n-1){
+			margin: 0 3.5%;
+			margin-bottom: 10px;
+		}
+		&>view:nth-child(3n-1){
+			margin: 0 3.5%;
+			margin-bottom: 10px;
+		}
+		.active{
+			border-color: #288CFF;
+			color: #288CFF;
+			background-color: rgba(40, 140, 255, 0.1);
+		}
+	}
+	
+	.btns{
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		background-color: #fff;
+		display: flex;
+		box-shadow: 0px -8px 8px 0px rgba(0, 0, 0, 0.04);
+		view{
+			flex: 1;
+			text-align: center;
+			font-size: 32rpx;
+			padding: 30rpx 0;
+			color: #288CFF;
+			image{
+				width: 30rpx;
+				height: 30rpx;
+				display: inline-block;
+				transform: rotate(-90deg);
+				position: relative;
+				top: 3px;
+			}
+		}
+		view:last-child{
+			background: linear-gradient(270deg, #2A74FF 0%, #2AA0FF 100%);
+			color: #fff;
+		}
+	}
+	
+	.close_alert{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 100;
+		background-color: rgba(0,0,0,0.5);
+		.main{
+			background-color: #fff;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			padding: 30rpx;
+			min-height: 30vh;
+			max-height: 70vh;
+			overflow-y: auto;
+			border-radius: 20px 20px 0 0;
+			box-sizing: border-box;
+			.tags{
+				height: auto;
+				padding-top: 20rpx;
+				padding: 0;
+				view{
+					position: relative;
+					image{
+						width: 16rpx;
+						height: 16rpx;
+						float: right;
+						margin-right: 5px;
+						margin-top: 5px;
+					}
+				}
+			}
+			.t{
+				padding-bottom: 30rpx;
+				image{
+					float: right;
+					width: 20rpx;
+					height: 20rpx;
+				}
+				text{
+					font-size: 36rpx;
+					font-weight: bold;
+					color: #333;
+				}
+			}
+		}
+	
+	}
+	
+}

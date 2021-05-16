@@ -13,9 +13,12 @@
 	  
 	  <view class="right">
 		  <view class="ul clearfix">
-			  <view bindtap="changeCaiItem" data-item="{{item}}" class="li {{item.active?'active':''}}"  wx:for="{{caiList}}">
+			  <view bindtap="changeCaiItem" data-item="{{item}}" class="li clearfix {{item.active?'active':''}}"  wx:for="{{caiList}}">
 				<image class="img" src="{{item.dishes_thumb}}"></image>
 				<text>{{item.dishes_name}}</text>
+				<view class="tags">
+					<text wx:for-item="tt" wx:for="{{item.tag}}" >{{tt}}</text>
+				</view>
 				<image src="../../images/bzbf.png" class="yb"></image>
 			  </view>
 		  </view>

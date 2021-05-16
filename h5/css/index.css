@@ -35,7 +35,7 @@ li {
   height: 22vh;
 }
 .index .main_wrap {
-  height: calc(100vh - 20px + 150px);
+  height: calc(100vh - 45px + 150px);
   transform: translateY(-20px);
   border-radius: 20px 20px 0 0;
 }
@@ -128,6 +128,24 @@ li {
 .index .main_wrap .tabs .active span i {
   opacity: 1;
 }
+.index .main_wrap .diancan .pages {
+  background-color: #fff;
+  padding: 50px 0;
+}
+.index .main_wrap .diancan .pages ul {
+  display: flex;
+}
+.index .main_wrap .diancan .pages li {
+  text-align: center;
+  flex: 1;
+}
+.index .main_wrap .diancan .pages li img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  margin: auto;
+  margin-bottom: 10px;
+}
 .index .main_wrap .diancan .times {
   padding: 18px 15px;
   display: flex;
@@ -158,8 +176,31 @@ li {
   padding-bottom: 15px;
   color: #333333;
 }
+.index .main_wrap .diancan .jts {
+  padding: 10px;
+  overflow: hidden;
+  background-color: #fff;
+  text-align: center;
+  margin-bottom: 1px;
+  box-shadow: 0px 1px 3px 0px #e5e5e5;
+}
+.index .main_wrap .diancan .jts svg {
+  width: 24px;
+  height: 24px;
+  float: left;
+}
+.index .main_wrap .diancan .jts span {
+  color: #333333;
+}
+.index .main_wrap .diancan .jts svg:last-child {
+  float: right;
+  transform: rotate(180deg);
+}
+.index .main_wrap .diancan .aixings img {
+  bottom: -80px;
+}
 .index .main_wrap .diancan .lists {
-  height: 57vh;
+  height: 90vh;
   overflow-y: auto;
   padding: 15px;
   padding-right: 0;
@@ -172,6 +213,18 @@ li {
   color: #333333;
   display: block;
   margin-bottom: 20px;
+}
+.index .main_wrap .diancan .lists .lis .dx {
+  padding-bottom: 8px;
+  color: #288CFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+.index .main_wrap .diancan .lists .lis .dx img {
+  display: inline-block;
+  width: 20px;
+  position: relative;
+  top: 3px;
 }
 .index .main_wrap .diancan .lists .swiper-slide {
   border: 1px solid transparent;
@@ -333,10 +386,14 @@ li {
   border: 1px solid #C6CAD3;
 }
 .index .dianping {
-  height: calc(100% - 138px);
-  height: calc(100% - 20px - 150px);
+  height: calc(100% - 150px);
 }
-.index .dianping .left {
+.index .dianping .boo_wrap {
+  height: calc(100% - 138px);
+  height: calc(100% - 0px);
+  overflow-y: auto;
+}
+.index .dianping .boo_wrap .left {
   height: 100%;
   background-color: #fff;
   float: left;
@@ -346,23 +403,23 @@ li {
   box-sizing: border-box;
   overflow-y: auto;
 }
-.index .dianping .left li {
+.index .dianping .boo_wrap .left li {
   list-style: none;
   border: 1px solid transparent;
 }
-.index .dianping .left li span {
+.index .dianping .boo_wrap .left li span {
   display: block;
   width: 100%;
   text-align: center;
   border-radius: 20px;
   padding: 5px 0;
 }
-.index .dianping .left .active span {
+.index .dianping .boo_wrap .left .active span {
   background-color: #288CFF;
   color: #fff;
   border-color: #288CFF;
 }
-.index .dianping .right {
+.index .dianping .boo_wrap .right {
   height: 100%;
   overflow-y: auto;
   float: left;
@@ -370,7 +427,7 @@ li {
   padding: 10px;
   box-sizing: border-box;
 }
-.index .dianping .right li {
+.index .dianping .boo_wrap .right li {
   float: left;
   width: 48.5%;
   margin-bottom: 10px;
@@ -383,19 +440,19 @@ li {
   position: relative;
   transition: all 0.5s;
 }
-.index .dianping .right li .img {
+.index .dianping .boo_wrap .right li .img {
   display: block;
   width: 100%;
   height: 120px;
   border-radius: 5px;
 }
-.index .dianping .right li span {
+.index .dianping .boo_wrap .right li span {
   display: block;
   font-size: 13px;
   margin-top: 10px;
   text-align: center;
 }
-.index .dianping .right li .yb {
+.index .dianping .boo_wrap .right li .yb {
   position: absolute;
   top: 0;
   right: 0;
@@ -403,58 +460,75 @@ li {
   height: 23px;
   display: none;
 }
-.index .dianping .right li:nth-child(2n) {
+.index .dianping .boo_wrap .right li:nth-child(2n) {
   margin-left: 3%;
 }
-.index .dianping .right .active {
+.index .dianping .boo_wrap .right .active {
   border: 1px solid #288CFF;
+  border-radius: 5px;
 }
-.index .dianping .right .active .yb {
+.index .dianping .boo_wrap .right .active .yb {
   display: block;
 }
-.index .dianping .left {
+.index .dianping .boo_wrap .boo {
+  height: 100%;
+}
+.index .dianping .boo_wrap .left {
+  height: calc(100% - 0px);
+  overflow-y: auto;
   padding: 0;
   background-color: #F0F4FC;
 }
-.index .dianping .left li {
+.index .dianping .boo_wrap .left li {
   padding: 15px 0;
 }
-.index .dianping .left .active {
+.index .dianping .boo_wrap .left .active {
   background-color: #fff;
 }
-.index .dianping .left .active span {
+.index .dianping .boo_wrap .left .active span {
   background: none;
   color: #288CFF;
 }
-.index .dianping .right {
-  padding: 0;
+.index .dianping .boo_wrap .right {
+  padding: 15px;
   background-color: #fff;
 }
-.index .dianping .right li {
+.index .dianping .boo_wrap .right .fgs {
+  padding: 15px 0;
+  display: block;
+  color: #333333;
+  border-bottom: 1px solid #e5e5e5;
+}
+.index .dianping .boo_wrap .right li {
   float: none;
   width: 100%;
   border-radius: 0;
   box-shadow: none;
   margin: 0 !important;
+  margin-bottom: 10px !important;
+  overflow: hidden;
 }
-.index .dianping .right li .img {
+.index .dianping .boo_wrap .right li .img {
   float: left;
   width: 90px;
   height: 90px;
 }
-.index .dianping .right li .r {
+.index .dianping .boo_wrap .right li .r {
   width: calc(100% - 90px);
   box-sizing: border-box;
   padding-left: 10px;
   float: left;
   position: relative;
 }
-.index .dianping .right li .r b {
+.index .dianping .boo_wrap .right li .r b {
   display: block;
   color: #333333;
   font-size: 16px;
 }
-.index .dianping .right li .r .tags span {
+.index .dianping .boo_wrap .right li .r .tags {
+  min-height: 37px;
+}
+.index .dianping .boo_wrap .right li .r .tags span {
   float: left;
   color: #7081A0;
   font-size: 12px;
@@ -464,13 +538,13 @@ li {
   margin-right: 5px;
   margin-bottom: 5px;
 }
-.index .dianping .right li .r .dx {
+.index .dianping .boo_wrap .right li .r .dx {
   padding-top: 8px;
   color: #288CFF;
   font-size: 14px;
   cursor: pointer;
 }
-.index .dianping .right li .r .dx img {
+.index .dianping .boo_wrap .right li .r .dx img {
   display: inline-block;
   width: 20px;
   position: relative;
@@ -528,6 +602,11 @@ li {
   border: 1px solid #E5E5E5;
   padding: 3px 5px;
   margin-right: 10px;
+}
+.index .dianping_alert .d_main .tags .active {
+  background: #2AA0FF;
+  color: #fff;
+  border-color: #2AA0FF;
 }
 .index .dianping_alert .d_main .textarea {
   padding: 10px 0;
@@ -720,6 +799,7 @@ li {
 }
 .index .main .right .active {
   border: 1px solid #288CFF;
+  border-radius: 5px;
 }
 .index .main .right .active .yb {
   display: block;
@@ -736,6 +816,116 @@ li {
   box-sizing: border-box;
   z-index: 10;
   background-color: #288CFF;
+}
+.index .submit_dc {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.index .submit_dc .tjs {
+  position: relative;
+  background-color: #b2bfd7;
+  border-radius: 30px;
+  padding-left: 100px;
+  z-index: 100;
+}
+.index .submit_dc .tjs img {
+  width: 80px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.index .submit_dc .tjs .none {
+  padding: 14px 0;
+  padding-left: 20%;
+  color: rgba(255, 255, 255, 0.7);
+}
+.index .submit_dc .tjs .has {
+  display: flex;
+}
+.index .submit_dc .tjs .has span {
+  padding: 12px 0;
+  text-align: center;
+}
+.index .submit_dc .tjs .has span:first-child {
+  flex: 6;
+  color: rgba(255, 255, 255, 0.7);
+}
+.index .submit_dc .tjs .has span:first-child svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  transform: rotate(90deg) translateX(3px);
+}
+.index .submit_dc .tjs .has span:first-child svg path {
+  fill: rgba(255, 255, 255, 0.6);
+}
+.index .submit_dc .tjs .has span:last-child {
+  flex: 4;
+  border-radius: 0 30px 30px 0;
+  color: #fff;
+  background: linear-gradient(to right, #2aa0ff, #2a74ff);
+}
+.index .submit_dc .mores {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: calc(100vh - 68px);
+}
+.index .submit_dc .mores .mains {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px 20px 0 0;
+}
+.index .submit_dc .mores .mains .title b {
+  color: #333333;
+  font-size: 18px;
+}
+.index .submit_dc .mores .mains .title img {
+  float: right;
+  width: 14px;
+}
+.index .submit_dc .mores .mains .tgas {
+  padding: 30px 0;
+  padding-bottom: 60px;
+}
+.index .submit_dc .mores .mains .tgas span {
+  float: left;
+  width: 30%;
+  color: #288cff;
+  border: 1px solid #288cff;
+  border-radius: 20px;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  background-color: #f1f8ff;
+}
+.index .submit_dc .mores .mains .tgas span img {
+  float: right;
+  width: 10px;
+  height: 10px;
+  margin-top: 6px;
+  margin-right: 3px;
+}
+.index .submit_dc .mores .mains .tgas span i {
+  font-style: normal;
+  display: inline-block;
+  width: 80%;
+}
+.index .submit_dc .mores .mains .tgas span:nth-child(3n-1) {
+  margin: 0 5%;
 }
 .index .ts {
   position: fixed;

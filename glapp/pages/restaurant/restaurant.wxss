@@ -1,0 +1,2 @@
+/* pages/restaurant/restaurant.wxss */
+@import "/less/restaurant/restaurant.wxss";

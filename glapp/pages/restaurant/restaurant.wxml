@@ -1,0 +1,53 @@
+<!--pages/restaurant/restaurant.wxml-->
+<view class="restaurant">
+	<navbar navTitle="餐厅资料" style="width:200rpx;"></navbar>
+	<view class="items">
+		<form catchsubmit="formSubmit">
+		<view class="item">
+			<view class="t">餐厅主图</view>
+			<view class="m">
+				<image data-type="1" bindtap="changeImg" class="add" src="{{formData.main_pic}}"></image>
+			</view>
+		</view>
+		<view style="border-bottom: 1px solid #E5E5E5;" class="item two clearfix">
+			<view class="t" style="position: relative;top: 60rpx;">餐厅logo</view>
+			<view class="m">
+				<image data-type="2" bindtap="changeImg" class="add2" src="{{formData.logo}}"></image>
+			</view>
+		</view>
+		<view class="item two clearfix">
+			<view class="t">餐厅名称</view>
+			<view class="m">
+				<input value="{{formData.name}}" name="name" type="text" placeholder="请输入餐厅名称" />
+			</view>
+		</view>
+		<view style="border-bottom: 1px solid #E5E5E5;"  class="item two clearfix">
+			<view class="t">餐厅评分</view>
+			<view class="m">
+				<input value="{{formData.score}}" name="score" type="number" placeholder="请输入餐厅评分" />
+			</view>
+		</view>
+		<view class="item clearfix">
+			<view class="t">餐厅介绍</view>
+			<view class="m">
+				<textarea value="{{formData.summary}}"  name="summary" placeholder="请输入餐厅介绍"></textarea>
+			</view>
+		</view>
+		<view class="item clearfix">
+			<view class="t">餐厅公告</view>
+			<view class="m">
+				<textarea value="{{formData.bulletin}}" name="bulletin" placeholder="请输入餐厅公告"></textarea>
+			</view>
+		</view>
+			
+			<view class="btn">
+				<button formType="submit" type="primary">保存</button>
+			</view>
+		
+		</form>
+		
+	</view>
+	
+	
+	
+</view>

@@ -62,6 +62,7 @@ Page({
 			success: (res) => {
 				res.datas = res.datas.map(item => {
 					item.active = false
+					item.tag = item.taste_label ? item.taste_label.split(",") : []
 					return item
 				})
 				this.setData({

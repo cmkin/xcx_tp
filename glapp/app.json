@@ -1,12 +1,32 @@
 {
   "pages": [
+	  "pages/menu/menu",
 	  "pages/recipes/recipes",
-    "pages/menu/menu",
-    "pages/index/index",
+	  
+	  "pages/evaluate/evaluate",
+	  
+	  
+	 
+	  "pages/cook/cook",
+	  "pages/index/index",
+	  "pages/index/edit/edit",
+	  
+	   
+	  
+	  "pages/restaurant/restaurant",
+	  "pages/recipes/addRec/addRec",
+	  
+	 
+    
+    
+    
+    
+    
+    
     "pages/statistics/statistics",
     "pages/classification/classification",
-    "pages/index/detail/detail",
-    "pages/index/edit/edit"
+    "pages/index/detail/detail"
+    
     
   ],
   "window": {

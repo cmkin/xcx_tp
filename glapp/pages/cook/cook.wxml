@@ -1,0 +1,70 @@
+<!--pages/cook/cook.wxml-->
+<view class="cook">
+	<navbar navTitle="厨师资料" style="width:200rpx;"></navbar>
+	
+	
+	<view class="items">
+		<view class="item" wx:if="{{list.length}}" wx:for="{{list}}">
+			<view class="t clearfix">
+				<image src="{{item.imgurl}}"></image>
+				<view class="r">
+					<text>{{item.cook_name}}</text>
+					<view>{{item.info}}</view>
+				</view>
+			</view>
+			<view class="btnss">
+				<text bindtap="editItem" data-item="{{item}}">修改</text>
+				<text bindtap="delItem" data-id="{{item.id}}" >删除</text>
+			</view>
+		</view>
+	</view>
+	
+	<image bindtap="addItem" class="ads" src="../../images/ads.png"></image>
+	
+	<view class="nodata"  wx:if="{{!list.length}}">
+		<image src="../../images/cs.png"></image>
+		<view class="j">暂无厨师资料</view>
+		<view class="add" bindtap="changeFlag">
+			<image src="../../images/addb.png"></image>
+			添加
+		</view>
+	</view>
+	
+	<view class="add_alert" wx:if="{{addFlag}}">
+		<view class="main">
+			<view class="t">
+				<text>请添加厨师资料</text>
+				<image bindtap="changeFlag" src="../../images/close_h.png"></image>
+			</view>
+			<form catchsubmit="formSubmit">
+			<view class="add_wrap">
+				<view class="add">
+					<view class="no" bindtap="changeImg" wx:if="{{!formData.cook_img}}">
+						<image src="../../images/add.png"></image>
+						<text>上传照片</text>
+					</view>
+					<view class="has" wx:if="{{formData.cook_img}}">
+						<image class="img" src=" {{ formData.cook_img?formData.cook_img:'../../../images/del.png' }} "></image>
+						<image bindtap="delimg" src="../../images/del.png" class="del"></image>
+					</view>
+				</view>
+				<input type="text" value="{{formData.cook_name}}" name="cook_name" placeholder="请输入厨师姓名" />
+			</view>
+			
+			<textarea class="textarea" value="{{formData.info}}" name="info" placeholder="请输入厨师资料"></textarea>
+			
+			
+			<view class="btns">
+				<view bindtap="changeFlag">
+					取消
+				</view>
+				<view>
+					<button formType="submit" type="primary">保存</button>
+				</view>
+			</view>
+			</form>
+		</view>
+		
+	</view>
+	
+</view>

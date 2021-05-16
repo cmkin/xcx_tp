@@ -1,0 +1,55 @@
+.restaurant .items {
+  background-color: #fff;
+  padding: 30rpx;
+  padding-bottom: 80rpx;
+}
+.restaurant .items .item {
+  padding: 20rpx 0;
+  margin-bottom: 10px;
+}
+.restaurant .items .item .t {
+  margin-bottom: 10px;
+}
+.restaurant .items .item .add {
+  display: block;
+  width: 100%;
+  height: 260rpx;
+}
+.restaurant .items .item input {
+  float: right;
+  text-align: right;
+}
+.restaurant .items .item textarea {
+  padding: 10px;
+  background-color: #F7F8FC;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.restaurant .items .two .t {
+  float: left;
+}
+.restaurant .items .two .add2 {
+  float: right;
+  width: 150rpx;
+  height: 150rpx;
+}
+.restaurant .btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(270deg, #2A74FF 0%, #2AA0FF 100%);
+  color: #fff;
+  font-size: 36rpx;
+  text-align: center;
+  z-index: 100;
+}
+.restaurant .btn button {
+  padding: 20rpx 0;
+  display: block;
+  width: 100%;
+  font-weight: normal;
+  background: linear-gradient(270deg, #2A74FF 0%, #2AA0FF 100%);
+}

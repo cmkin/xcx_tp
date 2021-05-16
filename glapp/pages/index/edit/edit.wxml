@@ -1,7 +1,10 @@
 <!--pages/index/edit/edit.wxml-->
 <view class="index_edit">
 	<navbar navTitle="编辑菜品" style="width:200rpx;"></navbar>
-	<view class="main" style="height: {{winHeightTab+'px'}};">
+	
+	<!-- style="height: {{winHeightTab+'px'}};" -->
+	
+	<view class="main" >
 		<view class="add">
 			<view class="no" bindtap="changeImg" wx:if="{{!item.dishesPic}}">
 				<image src="../../../images/add.png"></image>
@@ -12,13 +15,65 @@
 				<image bindtap="delimg" src="../../../images/del.png" class="del"></image>
 			</view>
 		</view>
-		<view class="li"  wx:if="{{id}}">
-			<input type="text" disabled value="{{name}}" placeholder="" />
+		
+		<view class="list_wrap">
+			<!-- <view class="li"  wx:if="{{id}}">
+				<text>菜品分类</text>
+				<input type="text" disabled value="{{name}}" placeholder="" />
+			</view> -->
+			<view class="li">
+				<text>菜品名</text>
+				<input type="text" bindinput="inputChange" value="{{item.dishesName}}" placeholder="请输入菜品名称" />
+			</view>
+			<view class="li" wx:if="{{id}}">
+				<text>分类</text>
+				<view class="r" bindtap="showAlert">
+					<text>{{name}}</text>
+					<image src="../../../images/jtr.png"></image>
+				</view>
+			</view>
 		</view>
-		<view class="li">
-			<input type="text" bindinput="inputChange" value="{{item.dishesName}}" placeholder="请输入菜品名称" />
+		
+		<view class="list_wrap">
+			<view class="t">口味标签</view>
+			<view class="li li2" wx:for="{{kwList}}">
+				<input data-id="{{index}}" value="{{item.value}}" bindinput="changeKw" type="text" placeholder="请输入口味标签" />
+			</view>
 		</view>
-		<view bindtap="addcai" class="li blue" wx:if="{{id}}">
+		<view class="list_wrap" style="margin-bottom: 160rpx;">
+			<view class="t">评价标签</view>
+			
+			<view class="li li2" wx:for="{{pjList}}">
+				<input data-id="{{index}}" value="{{item.value}}" bindinput="changePj" type="text" placeholder="请输入评价标签" />
+			</view>
+		</view>
+		
+		<view class="btns">
+			<text bindtap="back">取消</text>
+			<text bindtap="saveEdit" wx:if="{{!id}}">保存</text>
+			<text bindtap="addcai" wx:if="{{id}}">添加</text>
+		</view>
+		
+		
+		
+		<view class="close_alert" wx:if="{{alertFlag}}">
+			<view class="main">
+				<view class="t">
+					<text>请选择分类</text>
+					<image bindtap="showAlert" src="../../../images/close_h.png"></image>
+				</view>
+				<view wx:if="{{ meunList.length }}" class="tags clearfix">
+					<view bindtap="changeFl" data-item="{{item}}" class="omg {{item.id==id?'active':''}}" wx:for="{{meunList}}">
+						{{item.category_name}}
+					</view>
+				</view>
+				<view wx:if="{{ !meunList.length }}">请先选择菜品</view>
+			</view>
+		</view>
+		
+		
+		
+		<!-- <view bindtap="addcai" class="li blue" wx:if="{{id}}">
 			<text>确认添加菜品</text>
 		</view>
 		<view bindtap="saveEdit" class="li blue" wx:if="{{!id}}">
@@ -26,7 +81,7 @@
 		</view>
 		<view bindtap="back" class="li" style="border: 2rpx solid #E5E5E5;background-color: #fff;">
 			<text>取消</text>
-		</view>
+		</view> -->
 		
 	</view>
 </view>

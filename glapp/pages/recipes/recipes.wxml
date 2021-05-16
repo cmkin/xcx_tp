@@ -1,24 +1,51 @@
 <!--pages/recipes/recipes.wxml-->
 <view class="recipes">
-	<navbar navTitle="食谱录入" style="width:200rpx;"></navbar>
+	<navbar navTitle="{{navTitle}}" style="width:200rpx;"></navbar>
 	<view class="main">
 		<view class="time_wrap">
-			<view class="time">
-				<picker style="display: inline-block;width: 47%;" mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
+			<view class="time" wx:if="{{pageType==4}}">
+				<picker style="display: inline-block;width: 100%;" mode="date" value="{{date}}" start="2015-09-01" bindchange="bindDateChange">
 			
 					<text>{{date}}</text>
 				</picker>
 			
-				<picker style="display: inline-block;width: 47%;margin-left: 6%;" mode="selector" value="{{index}}" range="{{array}}"  bindchange="bindPickerChange">
+				<picker style="display: none;width: 47%;margin-left: 6%;" mode="selector" value="{{index}}" range="{{array}}"  bindchange="bindPickerChange">
 				
 					<text>{{array[index]}}</text>
 				</picker>
 			</view>
-			<view class="textaere">
-				<textarea placeholder="请输入今日主题" />
+			<view class="textaere" style="display: none;">
+				<textarea value="{{recipes_name}}" bindinput="recipes_nameChange" placeholder="请输入今日主题" />
 			</view>
 		</view>
 		
+		<view class="items">
+			<view class="item" wx:for="{{titleArr}}">
+				<view class="title">
+					<text class="b">{{item}}</text>
+					<text class="t" style="display: none;">请点击选择今日推荐菜</text>
+					<view class="r clearfix" data-title="{{item}}" data-index="{{index+1}}" bindtap="goEdit">
+						<text>编辑</text>
+						<image src="../../images/jt_l.png"></image>
+					</view>
+				</view>
+				
+				<view class="tags clearfix" wx:if="{{readList[index].dishes}}">
+					<!-- class="{{tt.is_recommend == 1 ?'active':''}}" -->
+					<text  data-index="{{index}}" data-recipes_id="{{readList[index].recipes_id}}"  data-is_recommend="{{tt.is_recommend}}"  data-id="{{tt.id}}" bindtap="changeTj" wx:for-item="tt" wx:for-index="ti" wx:for="{{readList[index].dishes}}">{{tt.dishes_name}}</text>
+				</view>
+				
+				<view class="nodata" wx:if="{{!readList[index].dishes}}">
+					<image src="../../images/nc.png"></image>
+					<text>暂无菜品，请进行编辑添加～</text>
+				</view>
+				
+			</view>
+		</view>
+		
+		<view style="height: 41px;"></view>
+		
+		<!-- <view class="submit" bindtap="submit">保存</view> -->
 		
 	</view>
 	

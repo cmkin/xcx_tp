@@ -7,7 +7,7 @@
 .index .main .left {
   background-color: #fff;
   padding: 30rpx;
-  width: 25%;
+  width: 20%;
   box-shadow: 8px 0px 8px 0px rgba(0, 0, 0, 0.03);
   box-sizing: border-box;
 }
@@ -28,15 +28,14 @@
   color: #fff;
 }
 .index .main .right {
-  width: 75%;
+  width: 80%;
   padding: 20rpx;
   position: relative;
   box-sizing: border-box;
   padding-bottom: 80rpx;
 }
 .index .main .right .li {
-  float: left;
-  width: 48.5%;
+  width: 100%;
   margin-bottom: 20rpx;
   background-color: #fff;
   box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
@@ -46,18 +45,36 @@
   box-sizing: border-box;
   position: relative;
   transition: all 0.5s;
+  padding-left: 200rpx;
+  min-height: 200rpx;
 }
 .index .main .right .li .img {
-  display: block;
-  width: 100%;
-  height: 230rpx;
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+  width: 160rpx;
+  height: 160rpx;
   border-radius: 10rpx;
+  margin-right: 20rpx;
 }
-.index .main .right .li text {
+.index .main .right .li .tags {
+  padding-top: 10px;
+}
+.index .main .right .li .tags text {
+  background: #F0F4FC;
+  border-radius: 6rpx;
+  font-size: 20rpx;
+  color: #7081A0;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  display: inline-block;
+  padding: 2px 5px;
+}
+.index .main .right .li > text {
+  color: #333;
   display: block;
-  font-size: 26rpx;
-  margin-top: 20rpx;
-  text-align: center;
+  font-size: 30rpx;
+  font-weight: bold;
 }
 .index .main .right .li .yb {
   position: absolute;
@@ -66,9 +83,6 @@
   width: 60rpx;
   height: 45rpx;
   display: none;
-}
-.index .main .right .li:nth-child(2n) {
-  margin-left: 3%;
 }
 .index .main .right .active {
   border: 1px solid #288CFF;
@@ -80,8 +94,8 @@
   position: fixed;
   right: 30rpx;
   bottom: 100rpx;
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 .index .main .right .delete {
   background: #FFFFFF;
@@ -89,7 +103,7 @@
   position: fixed;
   bottom: 0;
   right: 0;
-  width: 75%;
+  width: 80%;
   padding: 20rpx;
   font-size: 28rpx;
   box-sizing: border-box;

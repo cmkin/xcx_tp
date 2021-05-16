@@ -54,7 +54,7 @@ App({
 				'content-type': 'application/x-www-form-urlencoded' // 默认值
 			},
 			success(res) {
-				console.log(res.data)
+				
 				wx.hideLoading({
 					success: (res) => {},
 				})
@@ -62,10 +62,12 @@ App({
 				if (res.data.code == 200) {
 					options.success(res.data)
 				} else {
+					options.errorF && options.errorF()
 					wx.showToast({
-						title: options.error ? options.error : '请求失败',
+						title: options.error ? options.error : res.data.datas.error,
 						icon: "error"
 					})
+					
 				}
 			}
 		}

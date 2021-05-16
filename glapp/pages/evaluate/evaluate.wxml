@@ -1,0 +1,77 @@
+<!--pages/evaluate/evaluate.wxml-->
+<view class="evaluate">
+	 <navbar navTitle="评价管理" style="width:200rpx;"></navbar>
+	 <view class="search" style="top: {{navHeight+'px'}};">
+		<input confirm-type="search" bindconfirm="getList" type="text" bindinput="inputChange" value="{{formData.input}}" type="text" placeholder="请输入菜品名或评价关键字" />
+		<view class="selects">
+			<view class="i" bindtap="showcategoryFlag" data-type="0">
+				{{formData.category_id.title}}
+				<image src="../../images/sjx.png"></image>
+			</view>
+			<view class="i" bindtap="showcategoryFlag" data-type="1">
+				{{formData.dishes_id.title}}
+				<image src="../../images/sjx.png"></image>
+			</view>
+			<view class="i" bindtap="showcategoryFlag" data-type="2">
+				{{formData.order_by.title}}
+				<image src="../../images/sjx.png"></image>
+			</view>
+			<view class="i" bindtap="showcategoryFlag" data-type="3">
+				{{formData.display.title}}
+				<image src="../../images/sjx.png"></image>
+			</view>
+		</view>
+		
+	 </view>
+	 
+	 
+		<view class="pingjia">
+		 	<view class="i" wx:for="{{plList}}">
+		 		<view class="tt clearfix">
+		 			<text>{{item.dishes_name}}</text>
+		 			<view class="pj">
+		 				<text>{{rateTitle[item.star-1]}}</text>
+		 				<rate
+		 				  color="#FF6634"
+		 				  disabled-color="#E5E5E5"
+		 				  readonly
+		 				  value="{{item.star}}"
+		 				  :size="18"
+		 				  void-icon="star"
+		 				  void-color="#E5E5E5"
+		 				/>
+		 			</view>
+		 		</view>
+		 		<view class="tags clearfix">
+		 			<text wx:for-item="tt" wx:for="{{tag}}">{{tt}}</text>
+		 		</view>
+		 		<view class="cc">
+					{{item.content}}
+		 		</view>
+		 		<view class="time clearfix">
+					{{item.created_at}}
+					<text bindtap="showHide" data-display="{{item.display}}" data-id="{{item.comment_id}}">{{ item.display==0 ? '显示评论' : '隐藏评论' }}</text>
+				</view>
+		 	</view>
+		</view>
+	 
+	 
+	 
+	 
+	 
+	 
+	 <view class="select_tag" wx:if="{{categoryFlag}}">
+	 	<view class="m">
+			
+			<view style="padding-top: {{100+navHeight+'px'}};"  wx:if="{{categoryType == 0 || categoryType == 1}}" class="tags clearfix">
+				<text bindtap="changeXz" data-item="{{item}}" class="{{ item.active ? 'active' : ''  }}" wx:for="{{categoryData}}">{{item.title}}</text>
+			</view>
+	 		<view style="padding-top: {{100+navHeight+'px'}};" class="lists"  wx:if="{{categoryType == 2 || categoryType == 3}}">
+				<view bindtap="changeXz" data-item="{{item}}" class="i" wx:for="{{categoryData}}">
+					{{item.title}}
+					<image src="../../images/d.png"></image>
+				</view>
+			</view>
+	 	</view>
+	 </view>
+</view>

@@ -1,0 +1,3 @@
+/* pages/recipes/addRec/addRec.wxss */
+
+@import "/less/recipes/addRec/addRec.wxss";

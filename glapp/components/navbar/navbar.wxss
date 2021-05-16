@@ -45,14 +45,14 @@
 }
 .home{
 	display: inline-block;
-	width: 32rpx;
-	height: 30rpx;
-	margin-left: 20rpx;
+	width: 40rpx;
+	height: 40rpx;
+	margin-left: 30rpx;
 }
 .navbar-icon-wrap {
   position: absolute;
   left: 9px;
-  width: 44px;
+  min-width: 44px;
   height: 32px;
   display: flex;
   justify-content: center;
@@ -60,8 +60,8 @@
 }
 
 .navbar-icon {
-  width: 16rpx;
-  height: 22rpx;
+  width: 25rpx;
+  height: 30rpx;
 }
 
 .navbar-scan {

@@ -1,0 +1,40 @@
+<!--pages/recipes/addRec/addRec.wxml-->
+<view class="addRec">
+	<navbar navTitle="{{title}}" style="width:200rpx;"></navbar>
+	<view class="title clearfix"  style="top: {{navHeight+'px'}};">
+		<image data-type="{{0}}"  bindtap="nextMeun" class="l" src="{{lastJt?'../../../images/j3.png':'../../../images/j1.png'}}"></image>
+		<text wx:if="{{meunActive}}">{{meunActive.category_name}}</text>
+		<image data-type="{{1}}"  bindtap="nextMeun" class="r" src="{{nextJt?'../../../images/j4.png':'../../../images/j2.png'}}"></image>
+	</view>
+	<view class="tags clearfix">
+		<text  data-category_id="{{item.category_id}}"  data-dishes_id="{{item.dishes_id}}" bindtap="changeCai" class="{{item.active?'active':''}} omg" wx:for="{{caiList}}">{{item.dishes_name}}</text>
+	</view>
+	
+	<view class="btns">
+		<view bindtap="showAlert">
+			已选择菜品({{caiListlenght}})
+			<image src="../../../images/jt_l.png"></image>
+		</view>
+		<view bindtap="submit">
+			确定录入
+		</view>
+	</view>
+	
+	<view class="close_alert" wx:if="{{alertFlag}}">
+		<view class="main">
+			<view class="t">
+				<text>已选择菜品({{caiListlenght}})</text>
+				<image bindtap="showAlert" src="../../../images/close_h.png"></image>
+			</view>
+			<view wx:if="{{ caiListAvtive.length }}" class="tags clearfix">
+				<view class="active " wx:for="{{caiListAvtive}}">
+					
+					<text class="omg" style="display: inline-block;width:80%;">{{item.dishes_name}}</text>
+					<image bindtap="delCaiListAvtive" data-category_id="{{item.category_id}}"  data-dishes_id="{{item.dishes_id}}" src="../../../images/close.png"></image>
+				</view>
+			</view>
+			<view wx:if="{{ !caiListAvtive.length }}">请先选择菜品</view>
+		</view>
+	</view>
+	
+</view>
